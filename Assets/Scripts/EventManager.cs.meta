@@ -1,11 +1,21 @@
 fileFormatVersion: 2
 guid: 81d6125da71813d40a700b2ce64e58db
-timeCreated: 1512209272
+timeCreated: 1512232122
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabBoatEvent: {fileID: 1841880811722232, guid: db2f1a313e682d44aa4e89b8e3a4fbaf,
+      type: 2}
+  - prefabThiefEvent: {fileID: 1409825914053608, guid: e3e7cbe97e7c8204280a062e5a9c9345,
+      type: 2}
+  - prefabLostEvent: {fileID: 1511359439059748, guid: a30fc35126527ad41bdce63a85df7fe1,
+      type: 2}
+  - prefabWoundedEvent: {fileID: 1924953866335148, guid: 1e3acc22cea1e7b4f9aed27275ba44d3,
+      type: 2}
+  - prefabCarFireEvent: {fileID: 1417346559175158, guid: a71878d8da3f6c84c863a43058f224d7,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
