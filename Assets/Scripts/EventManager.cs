@@ -39,13 +39,13 @@ public class EventManager : MonoBehaviour
     {
         EventType type;
         GameObject spawnPoint;
-        GameObject collider;
+        GameObject mainObject;
 
         public Evenement(EventType eventType, GameObject spawn, GameObject coll)
         {
             type = eventType;
             spawnPoint = spawn;
-            collider = coll;
+            mainObject = coll;
         }
 
         public GameObject GetSpawnPoint()
@@ -53,9 +53,9 @@ public class EventManager : MonoBehaviour
             return spawnPoint;
         }
 
-        public GameObject GetCollider()
+        public GameObject GetMainObject()
         {
-            return collider;
+            return mainObject;
         }
 
         public EventType GetEventType()
@@ -138,6 +138,11 @@ public class EventManager : MonoBehaviour
 
             evenements.Add(new Evenement(tmpEventType,tmpSpawn, collider));
         }
+
+        foreach(GameObject spawn in spawnsPointForEvent)
+        {
+            Destroy(spawn);
+        }
     }
 
     static bool CheckIfPositionIsFree(GameObject spawn)
@@ -158,7 +163,7 @@ public class EventManager : MonoBehaviour
     {
         foreach (Evenement evenement in evenements)
         {
-            if (evenement.GetCollider().GetInstanceID() == currentEventZone.GetInstanceID())
+            if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
             {
                 currentEvenement = evenement;
                 break;
@@ -168,7 +173,8 @@ public class EventManager : MonoBehaviour
 
     static public void EndEvent()
     {
-
+        evenements.Remove(currentEvenement);
+        Destroy(currentEvenement.GetMainObject());
     }
 
     static public LayerMask ZoneToGo()
