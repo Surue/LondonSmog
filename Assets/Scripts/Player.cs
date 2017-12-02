@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
 
     void Update ()
     {
-        Debug.Log(state);
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         movement = new Vector2(speed * horizontal,

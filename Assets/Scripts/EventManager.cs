@@ -39,16 +39,23 @@ public class EventManager : MonoBehaviour
     {
         EventType type;
         GameObject spawnPoint;
+        GameObject collider;
 
-        public Evenement(EventType eventType, GameObject spawn)
+        public Evenement(EventType eventType, GameObject spawn, GameObject coll)
         {
             type = eventType;
             spawnPoint = spawn;
+            collider = coll;
         }
 
         public GameObject GetSpawnPoint()
         {
             return spawnPoint;
+        }
+
+        public GameObject GetCollider()
+        {
+            return collider;
         }
 
         public EventType GetEventType()
@@ -105,29 +112,31 @@ public class EventManager : MonoBehaviour
             }
 
             //Create new evenement
-            evenements.Add(new Evenement(tmpEventType, tmpSpawn));
+            GameObject collider = null;
             switch (tmpEventType)
             {
                 case EventType.BOAT:
-                    Instantiate(prefabBoatEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
+                    collider = Instantiate(prefabBoatEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
 
                 case EventType.CAR_FIRE:
-                    Instantiate(prefabCarFireEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
+                    collider = Instantiate(prefabCarFireEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
 
                 case EventType.LOST:
-                    Instantiate(prefabLostEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
+                    collider = Instantiate(prefabLostEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
 
                 case EventType.THIEF:
-                    Instantiate(prefabThiefEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
+                    collider = Instantiate(prefabThiefEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
 
                 case EventType.WOUNDED:
-                    Instantiate(prefabWoundedEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
+                    collider = Instantiate(prefabWoundedEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
             }
+
+            evenements.Add(new Evenement(tmpEventType,tmpSpawn, collider));
         }
     }
 
@@ -147,10 +156,9 @@ public class EventManager : MonoBehaviour
 
     static public void LaunchEvent(GameObject currentEventZone)
     {
-        Debug.Log("Lance event");
         foreach (Evenement evenement in evenements)
         {
-            if (evenement.GetSpawnPoint().GetInstanceID() == currentEventZone.GetInstanceID())
+            if (evenement.GetCollider().GetInstanceID() == currentEventZone.GetInstanceID())
             {
                 currentEvenement = evenement;
                 break;
