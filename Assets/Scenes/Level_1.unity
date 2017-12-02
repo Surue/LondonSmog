@@ -335,12 +335,17 @@ Prefab:
     - target: {fileID: 61967547730047516, guid: b620cc8a2600b764dae766a01f95efa3,
         type: 2}
       propertyPath: m_Size.y
-      value: 7.86
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 61967547730047516, guid: b620cc8a2600b764dae766a01f95efa3,
         type: 2}
       propertyPath: m_Size.x
-      value: 4.01
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 61967547730047516, guid: b620cc8a2600b764dae766a01f95efa3,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b620cc8a2600b764dae766a01f95efa3, type: 2}
@@ -462,7 +467,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.1, y: 4.23}
+  m_Size: {x: 5.1, y: 4}
   m_EdgeRadius: 0
 --- !u!61 &1635064846
 BoxCollider2D:
@@ -487,7 +492,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9, y: 4.15}
+  m_Size: {x: 2.9, y: 4}
   m_EdgeRadius: 0
 --- !u!61 &1635064847
 BoxCollider2D:
@@ -512,7 +517,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2, y: 4.2}
+  m_Size: {x: 7.2, y: 4}
   m_EdgeRadius: 0
 --- !u!61 &1635064848
 BoxCollider2D:
@@ -537,7 +542,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1, y: 4.2}
+  m_Size: {x: 4.1, y: 3.99}
   m_EdgeRadius: 0
 --- !u!61 &1635064849
 BoxCollider2D:
@@ -562,7 +567,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.29}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!4 &1635064850
 Transform:
@@ -571,7 +576,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635064844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1, y: 2.41585, z: -0.017578125}
+  m_LocalPosition: {x: -11.1, y: 2.27, z: -0.017578125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -600,5 +605,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.3, y: 4.25}
+  m_Size: {x: 10.3, y: 4}
   m_EdgeRadius: 0
