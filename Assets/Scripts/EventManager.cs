@@ -16,13 +16,13 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     GameObject prefabCarFireEvent;
 
-    List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
+    static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
 
-    int numberOfEvent = 5;
+    static int numberOfEvent = 5;
 
-    List<Evenement> evenements = new List<Evenement>();
+    static List<Evenement> evenements = new List<Evenement>();
 
-    Evenement currentEvenement;
+    static Evenement currentEvenement;
 
     //type of event
     enum EventType
@@ -57,6 +57,17 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public static EventManager Instance;
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Debug.Log("Multiple instances of SoundEffects");
+        }
+        Instance = this;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -72,6 +83,7 @@ public class EventManager : MonoBehaviour
     {
 
     }
+
     void GenerateAllEventForTheDay()
     {
         for (int i = 0; i < numberOfEvent; i++)
@@ -94,7 +106,6 @@ public class EventManager : MonoBehaviour
 
             //Create new evenement
             evenements.Add(new Evenement(tmpEventType, tmpSpawn));
-            Debug.Log(tmpSpawn + " " + tmpEventType);
             switch (tmpEventType)
             {
                 case EventType.BOAT:
@@ -119,7 +130,8 @@ public class EventManager : MonoBehaviour
             }
         }
     }
-    bool CheckIfPositionIsFree(GameObject spawn)
+
+    static bool CheckIfPositionIsFree(GameObject spawn)
     {
 
         foreach (Evenement evenement in evenements)
@@ -133,8 +145,9 @@ public class EventManager : MonoBehaviour
         return true;
     }
 
-    public void LaunchEvent(GameObject currentEventZone)
+    static public void LaunchEvent(GameObject currentEventZone)
     {
+        Debug.Log("Lance event");
         foreach (Evenement evenement in evenements)
         {
             if (evenement.GetSpawnPoint().GetInstanceID() == currentEventZone.GetInstanceID())
@@ -145,8 +158,14 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    LayerMask ZoneToGo()
+    static public void EndEvent()
     {
+
+    }
+
+    static public LayerMask ZoneToGo()
+    {
+        Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
             case EventType.BOAT:

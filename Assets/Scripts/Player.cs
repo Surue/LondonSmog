@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             case EventState.ON_EVENT_ZONE:
                 if(Input.GetMouseButtonDown(0))
                 {
-                  //EventManager.LaunchEvent(currentEventZone);
+                    EventManager.LaunchEvent(currentEventZone);
                     state = EventState.ON_EVENT;
                 }
                 break;
@@ -62,16 +62,18 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Event") && !eventEnCours)
+        if((collision.gameObject.layer == LayerMask.NameToLayer("Event")) && !eventEnCours)
         {
             state = EventState.ON_EVENT_ZONE;
             currentEventZone = collision.gameObject;
         }
 
-        /*if(collision.gameObject.layer == ZoneToGo && state == EventState.ON_EVENT)
+        if(eventEnCours && collision.gameObject.layer == EventManager.ZoneToGo())
         {
-            
-        }*/
+            Debug.Log("Fin de l'event");
+            EventManager.EndEvent();
+            state = EventState.OUT_EVENT_ZONE;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
