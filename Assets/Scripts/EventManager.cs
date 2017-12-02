@@ -23,7 +23,8 @@ public class EventManager : MonoBehaviour {
 
 
     //type of event
-    enum EventType{
+    enum EventType
+    {
         THIEF,
         CAR_FIRE,
         WOUNDED,
@@ -32,22 +33,26 @@ public class EventManager : MonoBehaviour {
         LENGTH
     }
 
-    struct Evenement{
+    struct Evenement
+    {
         EventType type;
         GameObject spawnPoint;
 
-        public Evenement(EventType eventType, GameObject spawn) {
+        public Evenement(EventType eventType, GameObject spawn)
+        {
             type = eventType;
             spawnPoint = spawn;
         }
 
-        public GameObject GetSpawnPoint() {
+        public GameObject GetSpawnPoint()
+        {
             return spawnPoint;
         }
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         //Get all spawn point 
         GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
         spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
@@ -56,16 +61,19 @@ public class EventManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
-    void EnterEvent(GameObject eventGameObject) {
+    void EnterEvent(GameObject eventGameObject)
+    {
 
     }
 
     void GenerateAllEventForTheDay() {
-        for(int i = 0; i < numberOfEvent; i++) {
+        for(int i = 0; i < numberOfEvent; i++)
+        {
             //Random event
             EventType tmpEventType = (EventType)Random.Range(0, (float)EventType.LENGTH);
             
@@ -75,7 +83,8 @@ public class EventManager : MonoBehaviour {
             while(!found) {
                 tmpSpawn = spawnsPointForEvent[Random.Range(0, spawnsPointForEvent.Count)];
 
-                if(CheckIfPositionIsFree(tmpSpawn)) {
+                if(CheckIfPositionIsFree(tmpSpawn))
+                {
                     found = true;
                 }
             }
@@ -83,7 +92,8 @@ public class EventManager : MonoBehaviour {
             //Create new evenement
             evenements.Add(new Evenement(tmpEventType, tmpSpawn));
             Debug.Log(tmpSpawn+" "+tmpEventType);
-            switch(tmpEventType) {
+            switch(tmpEventType)
+            {
                 case EventType.BOAT:
                     Instantiate(prefabBoatEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
                     break;
@@ -107,14 +117,15 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    bool CheckIfPositionIsFree(GameObject spawn) {
-
-        foreach(Evenement evenement in evenements) {
-            if(evenement.GetSpawnPoint().GetInstanceID() == spawn.GetInstanceID()) {
+    bool CheckIfPositionIsFree(GameObject spawn)
+    {
+        foreach(Evenement evenement in evenements)
+        {
+            if(evenement.GetSpawnPoint().GetInstanceID() == spawn.GetInstanceID())
+            {
                 return false; 
             }
         }
-
         return true;
     }
 

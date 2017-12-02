@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     float speed;
     Rigidbody2D body;
     bool eventEnCours = false;
+    GameObject currentEventZone = null;
 
     public enum EventState
     {
@@ -37,11 +38,13 @@ public class Player : MonoBehaviour
         {
             case EventState.OUT_EVENT_ZONE:
                 eventEnCours = false;
+                currentEventZone = null;
                 break;
 
             case EventState.ON_EVENT_ZONE:
                 if(Input.GetMouseButtonDown(0))
                 {
+                  //EventManager.LaunchEvent(currentEventZone);
                     state = EventState.ON_EVENT;
                 }
                 break;
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Event") && !eventEnCours)
         {
             state = EventState.ON_EVENT_ZONE;
+            currentEventZone = collision.gameObject;
         }
 
         /*if(collision.gameObject.layer == ZoneToGo && state == EventState.ON_EVENT)
