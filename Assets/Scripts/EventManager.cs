@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
 
 public class EventManager : MonoBehaviour
 {
@@ -43,13 +44,36 @@ public class EventManager : MonoBehaviour
         GameObject spawnPoint;
         GameObject mainObject;
         GameObject npc;
+        Rigidbody2D rigid;
+        bool rescued;
+        SkeletonAnimation skeletonAnimation;
+        bool lookingRight;
 
         public Evenement(EventType eventType, GameObject spawn, GameObject coll)
         {
             type = eventType;
             spawnPoint = spawn;
             mainObject = coll;
-            npc = mainObject.transform.Find("NPC").gameObject;
+            if(eventType != EventType.LENGTH)
+            {
+                npc = mainObject.transform.Find("NPC").gameObject;
+                rigid = npc.GetComponent<Rigidbody2D>();
+                skeletonAnimation = npc.GetComponent<SkeletonAnimation>();
+            }
+            else
+            {
+                npc = null;
+                rigid = null;
+                skeletonAnimation = null;
+            }
+            rescued = false;
+
+            lookingRight = false;
+        }
+
+        public void Velocity()
+        {
+
         }
 
         public GameObject GetSpawnPoint()
@@ -71,7 +95,65 @@ public class EventManager : MonoBehaviour
         {
             return npc;
         }
+
+        public void SetRescued()
+        {
+            rescued = true;
+        }
+
+        public bool IsRescued()
+        {
+            return rescued;
+        }
+
+        void Flip()
+        {
+            Vector3 theScale = npc.transform.localScale;
+            theScale.x *= -1;
+            npc.transform.localScale = theScale;
+            lookingRight = !lookingRight;
+        }
+
+        public void SetVelocity()
+        {
+            rigid.velocity = (player.transform.position - npc.transform.position).normalized * 4.5f;
+            
+            if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
+            {
+                if(rigid.velocity.x > 0)
+                {
+                    if(!lookingRight)
+                    {
+                        Flip();
+                    }
+
+                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+                }
+                else
+                {
+                    if(lookingRight)
+                    {
+                        Flip();
+                    }
+
+                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+                }
+            }
+            else
+            {
+                if(rigid.velocity.y > 0)
+                {
+                    skeletonAnimation.AnimationName = "Marche_Dos";
+                }
+                else
+                {
+                    skeletonAnimation.AnimationName = "Marche_Face";
+                }
+            }
+        }
     }
+
+    Evenement emptyEvenement = new Evenement(EventType.LENGTH, null, null);
 
     public static EventManager Instance;
 
@@ -101,7 +183,10 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(currentEvenement.GetEventType() != EventType.LENGTH && currentEvenement.GetNPC() != null)
+        {
+            currentEvenement.SetVelocity();
+        }
     }
 
     void GenerateAllEventForTheDay()
@@ -189,6 +274,7 @@ public class EventManager : MonoBehaviour
                     currentEvenement = evenement;
                     currentEvenement.GetNPC().transform.parent = player.transform;
                     currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
+                    currentEvenement.SetRescued();
                     break;
                 }
             }
@@ -198,8 +284,8 @@ public class EventManager : MonoBehaviour
     static public void EndEvent()
     {
         evenements.Remove(currentEvenement);
-        Destroy(currentEvenement.GetMainObject());
         Destroy(currentEvenement.GetNPC());
+        Destroy(currentEvenement.GetMainObject());
     }
 
     static public LayerMask ZoneToGo()

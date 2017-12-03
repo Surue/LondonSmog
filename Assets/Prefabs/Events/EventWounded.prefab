@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33896847321078218}
   - component: {fileID: 23988910366891182}
   - component: {fileID: 114296827269553974}
+  - component: {fileID: 50572575728568104}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924953866335148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.955312, y: 10.482335, z: 0}
+  m_LocalPosition: {x: 9.733546, y: 29.425184, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4858538784353586}
@@ -113,6 +114,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826339080104004}
   m_Mesh: {fileID: 0}
+--- !u!50 &50572575728568104
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1826339080104004}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61516309962040046
 BoxCollider2D:
   m_ObjectHideFlags: 1
