@@ -172,6 +172,7 @@ public class EventManager : MonoBehaviour
                 {
                     currentEvenement = evenement;
                     currentEvenement.GetMainObject().transform.parent = player.transform;
+                    currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
                     break;
                 }
             }
@@ -186,7 +187,6 @@ public class EventManager : MonoBehaviour
 
     static public LayerMask ZoneToGo()
     {
-        Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
             case EventType.BOAT:

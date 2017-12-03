@@ -67,12 +67,8 @@ public class Player : MonoBehaviour
 
         if(eventEnCours && collision.gameObject.layer == EventManager.ZoneToGo())
         {
-            Debug.Log("Fin de l'event");
             EventManager.EndEvent();
             state = EventState.OUT_EVENT_ZONE;
-        }else
-        {
-            Debug.Log(LayerMask.LayerToName(collision.gameObject.layer));
         }
     }
 
