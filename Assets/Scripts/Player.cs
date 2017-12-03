@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    float speed;
+    [SerializeField]
+    Image gaugeIntoxication;
+
     float horizontal;
     float vertical;
     Vector2 movement;
-    [SerializeField]
-    float speed;
     Rigidbody2D body;
     bool eventEnCours = false;
     GameObject currentEventZone = null;
+    bool isInSafeZone = false;
+    float intoxicationLevel = 0.0f;
+    float timeInSecondsCanGoOut = 120f;
 
     public enum EventState
     {
@@ -24,6 +31,7 @@ public class Player : MonoBehaviour
 	void Start ()
     {
         body = GetComponent<Rigidbody2D>();
+        StartCoroutine(getIntoxicate());
 	}
 
     void Update ()
@@ -50,6 +58,21 @@ public class Player : MonoBehaviour
                 eventEnCours = true;
                 break;
         }
+
+        Debug.Log(intoxicationLevel);
+    }
+
+    IEnumerator getIntoxicate()
+    {
+        while(true)
+        {
+            if(!isInSafeZone)
+            {
+                intoxicationLevel += 100 / timeInSecondsCanGoOut;
+                gaugeIntoxication.fillAmount = intoxicationLevel / 100;
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
 
     void FixedUpdate()
@@ -70,6 +93,11 @@ public class Player : MonoBehaviour
             EventManager.EndEvent();
             state = EventState.OUT_EVENT_ZONE;
         }
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("House") || collision.gameObject.layer == LayerMask.NameToLayer("Hospital") || collision.gameObject.layer == LayerMask.NameToLayer("PoliceStation"))
+        {
+            isInSafeZone = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -77,6 +105,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Event") && !eventEnCours)
         {
             state = EventState.OUT_EVENT_ZONE;
+        }
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("House") || collision.gameObject.layer == LayerMask.NameToLayer("Hospital") || collision.gameObject.layer == LayerMask.NameToLayer("PoliceStation"))
+        {
+            isInSafeZone = false;
         }
     }
 }
