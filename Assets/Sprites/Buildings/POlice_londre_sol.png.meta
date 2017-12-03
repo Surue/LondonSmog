@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 3450bb411ff34a540a4f658e61bca285
-timeCreated: 1512319210
+timeCreated: 1512333618
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: POlice_londre_sol_0
+    21300002: POlice_londre_sol_1
+    21300004: POlice_londre_sol_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 3
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
@@ -76,7 +79,49 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: POlice_londre_sol_1
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 944
+        width: 4800
+        height: 1174
+      alignment: 9
+      pivot: {x: 0, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: POlice_londre_sol_0
+      rect:
+        serializedVersion: 2
+        x: 7137
+        y: 2094
+        width: 420
+        height: 586
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: POlice_londre_sol_2
+      rect:
+        serializedVersion: 2
+        x: 5585
+        y: 3588
+        width: 88
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline:
     - - {x: 1952.855, y: -2060.751}
       - {x: -2216.0022, y: -2167.6694}

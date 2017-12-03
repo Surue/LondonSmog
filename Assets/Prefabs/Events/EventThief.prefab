@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207821931015406}
   - component: {fileID: 61643003954422098}
+  - component: {fileID: 114245711376596022}
   m_Layer: 8
   m_Name: EventThief
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409825914053608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.811182, y: 30.624817, z: 0}
+  m_LocalPosition: {x: 1.1814442, y: 7.3800874, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4823310602845682}
@@ -159,6 +160,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.01, y: 2.12}
   m_EdgeRadius: 0
+--- !u!114 &114245711376596022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409825914053608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dec4f00828058d43948f894ca07bbef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114801254355253110
 MonoBehaviour:
   m_ObjectHideFlags: 1

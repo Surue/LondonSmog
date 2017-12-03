@@ -21,7 +21,7 @@ public class HouseManager : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            facade.color = new Color(1f, 1f, 1f, 0f);
+            facade.color = new Color(1f, 1f, 1f, 0.2f);
         }
     }
 

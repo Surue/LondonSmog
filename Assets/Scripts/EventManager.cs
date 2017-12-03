@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Spine.Unity;
 
 public class EventManager : MonoBehaviour
 {
@@ -25,135 +24,130 @@ public class EventManager : MonoBehaviour
 
     static Evenement currentEvenement;
 
-    static GameObject player;
+    public static GameObject player;
 
-    //type of event
-    enum EventType
-    {
-        THIEF,
-        CAR_FIRE,
-        WOUNDED,
-        LOST,
-        BOAT,
-        LENGTH
-    }
+    ////type of event
+    //enum EventType
+    //{
+    //    THIEF,
+    //    CAR_FIRE,
+    //    WOUNDED,
+    //    LOST,
+    //    BOAT,
+    //    LENGTH
+    //}
 
-    struct Evenement
-    {
-        EventType type;
-        GameObject spawnPoint;
-        GameObject mainObject;
-        GameObject npc;
-        Rigidbody2D rigid;
-        bool rescued;
-        SkeletonAnimation skeletonAnimation;
-        bool lookingRight;
+    //struct Evenement
+    //{
+    //    EventType type;
+    //    GameObject spawnPoint;
+    //    GameObject mainObject;
+    //    GameObject npc;
+    //    Rigidbody2D rigid;
+    //    bool rescued;
+    //    SkeletonAnimation skeletonAnimation;
+    //    bool lookingRight;
 
-        public Evenement(EventType eventType, GameObject spawn, GameObject coll)
-        {
-            type = eventType;
-            spawnPoint = spawn;
-            mainObject = coll;
-            if(eventType != EventType.LENGTH)
-            {
-                npc = mainObject.transform.Find("NPC").gameObject;
-                rigid = npc.GetComponent<Rigidbody2D>();
-                skeletonAnimation = npc.GetComponent<SkeletonAnimation>();
-            }
-            else
-            {
-                npc = null;
-                rigid = null;
-                skeletonAnimation = null;
-            }
-            rescued = false;
+    //    public Evenement(EventType eventType, GameObject spawn, GameObject coll)
+    //    {
+    //        type = eventType;
+    //        spawnPoint = spawn;
+    //        mainObject = coll;
+    //        if(eventType != EventType.LENGTH)
+    //        {
+    //            npc = mainObject.transform.Find("NPC").gameObject;
+    //            rigid = npc.GetComponent<Rigidbody2D>();
+    //            skeletonAnimation = npc.GetComponent<SkeletonAnimation>();
+    //        }
+    //        else
+    //        {
+    //            npc = null;
+    //            rigid = null;
+    //            skeletonAnimation = null;
+    //        }
+    //        rescued = false;
 
-            lookingRight = false;
-        }
+    //        lookingRight = false;
+    //    }
 
-        public void Velocity()
-        {
+    //    public GameObject GetSpawnPoint()
+    //    {
+    //        return spawnPoint;
+    //    }
 
-        }
+    //    public GameObject GetMainObject()
+    //    {
+    //        return mainObject;
+    //    }
 
-        public GameObject GetSpawnPoint()
-        {
-            return spawnPoint;
-        }
+    //    public EventType GetEventType()
+    //    {
+    //        return type;
+    //    }
 
-        public GameObject GetMainObject()
-        {
-            return mainObject;
-        }
+    //    public GameObject GetNPC()
+    //    {
+    //        return npc;
+    //    }
 
-        public EventType GetEventType()
-        {
-            return type;
-        }
+    //    public void SetRescued()
+    //    {
+    //        rescued = true;
+    //    }
 
-        public GameObject GetNPC()
-        {
-            return npc;
-        }
+    //    public bool IsRescued()
+    //    {
+    //        return rescued;
+    //    }
 
-        public void SetRescued()
-        {
-            rescued = true;
-        }
+    //    void Flip()
+    //    {
+    //        Vector3 theScale = npc.transform.localScale;
+    //        theScale.x *= -1;
+    //        npc.transform.localScale = theScale;
+    //        lookingRight = !lookingRight;
+    //    }
 
-        public bool IsRescued()
-        {
-            return rescued;
-        }
-
-        void Flip()
-        {
-            Vector3 theScale = npc.transform.localScale;
-            theScale.x *= -1;
-            npc.transform.localScale = theScale;
-            lookingRight = !lookingRight;
-        }
-
-        public void SetVelocity()
-        {
-            rigid.velocity = (player.transform.position - npc.transform.position).normalized * 4.5f;
+    //    public void SetVelocity()
+    //    {
+    //        rigid.velocity = (player.transform.position - npc.transform.position).normalized * 4.5f;
             
-            if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
-            {
-                if(rigid.velocity.x > 0)
-                {
-                    if(!lookingRight)
-                    {
-                        Flip();
-                    }
+    //        if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
+    //        {
+    //            if(rigid.velocity.x > 0)
+    //            {
+    //                if(!lookingRight)
+    //                {
+    //                    Flip();
+    //                }
 
-                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
-                }
-                else
-                {
-                    if(lookingRight)
-                    {
-                        Flip();
-                    }
+    //                skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+    //            }
+    //            else
+    //            {
+    //                if(lookingRight)
+    //                {
+    //                    Flip();
+    //                }
 
-                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
-                }
-            }
-            else
-            {
-                if(rigid.velocity.y > 0)
-                {
-                    skeletonAnimation.AnimationName = "Marche_Dos";
-                }
-                else
-                {
-                    skeletonAnimation.AnimationName = "Marche_Face";
-                }
-            }
-        }
-    }
+    //                skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if(rigid.velocity.y > 0)
+    //            {
+    //                skeletonAnimation.AnimationName = "Marche_Dos";
+    //            }
+    //            else
+    //            {
+    //                skeletonAnimation.AnimationName = "Marche_Face";
+    //            }
+    //        }
+    //    }
+    //}
 
-    Evenement emptyEvenement = new Evenement(EventType.LENGTH, null, null);
+    //Evenement emptyEvenement = new Evenement(Evenement.EventType.LENGTH, null, null); // TO DO
 
     public static EventManager Instance;
 
@@ -178,12 +172,14 @@ public class EventManager : MonoBehaviour
         GenerateAllEventForTheDay();
 
         player = GameObject.Find("Player");
+
+        currentEvenement = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentEvenement.GetEventType() != EventType.LENGTH && currentEvenement.GetNPC() != null)
+        if(currentEvenement != null)
         {
             currentEvenement.SetVelocity();
         }
@@ -194,7 +190,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < numberOfEvent; i++)
         {
             //Random event
-            EventType tmpEventType;
+            Evenement.EventType tmpEventType;
 
             //Random free Position
             GameObject tmpSpawn = null;
@@ -213,35 +209,38 @@ public class EventManager : MonoBehaviour
 
             if(tmpSpawn.tag == "SpawnPointWater")
             {
-                tmpEventType = EventType.BOAT;
+                tmpEventType = Evenement.EventType.BOAT;
                 tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
             }
             else
             {
-                tmpEventType = (EventType)Random.Range(0,(float)EventType.BOAT);
+                tmpEventType = (Evenement.EventType)Random.Range(0,(float)Evenement.EventType.BOAT);
 
                 //Create new evenement
                 switch(tmpEventType)
                 {
-                    case EventType.CAR_FIRE:
+                    case Evenement.EventType.CAR_FIRE:
                         tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
 
-                    case EventType.LOST:
+                    case Evenement.EventType.LOST:
                         tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
 
-                    case EventType.THIEF:
+                    case Evenement.EventType.THIEF:
                         tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
 
-                    case EventType.WOUNDED:
+                    case Evenement.EventType.WOUNDED:
                         tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
                 }
         }
 
-        evenements.Add(new Evenement(tmpEventType,tmpSpawn,tmpMainObject));
+        Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
+        tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
+
+        evenements.Add(tmpEvenement); //TO DO
         }
 
         foreach(GameObject spawn in spawnsPointForEvent)
@@ -265,7 +264,7 @@ public class EventManager : MonoBehaviour
 
     static public void LaunchEvent(GameObject currentEventZone)
     { 
-        if (currentEvenement.GetMainObject() == null)
+        if (currentEvenement == null)
         {
             foreach (Evenement evenement in evenements)
             {
@@ -286,6 +285,7 @@ public class EventManager : MonoBehaviour
         evenements.Remove(currentEvenement);
         Destroy(currentEvenement.GetNPC());
         Destroy(currentEvenement.GetMainObject());
+        currentEvenement = null;
     }
 
     static public LayerMask ZoneToGo()
@@ -293,15 +293,15 @@ public class EventManager : MonoBehaviour
         Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
-            case EventType.BOAT:
-            case EventType.CAR_FIRE:
-            case EventType.WOUNDED:
+            case Evenement.EventType.BOAT:
+            case Evenement.EventType.CAR_FIRE:
+            case Evenement.EventType.WOUNDED:
                 return LayerMask.NameToLayer("Hospital");
 
-            case EventType.LOST:
+            case Evenement.EventType.LOST:
                 return LayerMask.NameToLayer("House");
 
-            case EventType.THIEF:
+            case Evenement.EventType.THIEF:
                 return LayerMask.NameToLayer("PoliceStation");
         }
 

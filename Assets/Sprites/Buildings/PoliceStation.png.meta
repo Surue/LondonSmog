@@ -1,9 +1,22 @@
 fileFormatVersion: 2
-guid: 2ccf5f9582f987c45b0cc28d24358a44
-timeCreated: 1512319276
+guid: ebbb0da199471844da232fbf885983d1
+timeCreated: 1512333449
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: PoliceStation_0
+    21300002: PoliceStation_1
+    21300004: PoliceStation_2
+    21300006: PoliceStation_3
+    21300008: PoliceStation_4
+    21300010: PoliceStation_5
+    21300012: PoliceStation_6
+    21300014: PoliceStation_7
+    21300016: PoliceStation_8
+    21300018: PoliceStation_9
+    21300020: PoliceStation_10
+    21300022: PoliceStation_11
+    21300024: PoliceStation_12
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +53,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
@@ -76,7 +89,189 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PoliceStation_0
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 732
+        width: 5307
+        height: 6107
+      alignment: 9
+      pivot: {x: 0.5, y: 0.01}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_1
+      rect:
+        serializedVersion: 2
+        x: 8383
+        y: 6042
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_2
+      rect:
+        serializedVersion: 2
+        x: 7296
+        y: 5796
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_3
+      rect:
+        serializedVersion: 2
+        x: 8323
+        y: 4253
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_4
+      rect:
+        serializedVersion: 2
+        x: 7075
+        y: 3946
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_5
+      rect:
+        serializedVersion: 2
+        x: 7148
+        y: 3271
+        width: 12
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_6
+      rect:
+        serializedVersion: 2
+        x: 7148
+        y: 3082
+        width: 12
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_7
+      rect:
+        serializedVersion: 2
+        x: 7150
+        y: 3071
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_8
+      rect:
+        serializedVersion: 2
+        x: 7148
+        y: 1728
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_9
+      rect:
+        serializedVersion: 2
+        x: 7148
+        y: 1703
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_10
+      rect:
+        serializedVersion: 2
+        x: 7148
+        y: 1687
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_11
+      rect:
+        serializedVersion: 2
+        x: 5223
+        y: 711
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PoliceStation_12
+      rect:
+        serializedVersion: 2
+        x: 3569
+        y: 124
+        width: 24
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline:
     - - {x: -670.8071, y: -4083.1738}
       - {x: -687.47314, y: -4083.1738}
@@ -685,6 +880,13 @@ TextureImporter:
       - {x: 2449.9043, y: 1758.2646}
       - {x: 2458.2373, y: 1762.4312}
       - {x: 2458.2373, y: 1787.4302}
+    - - {x: 4108.173, y: 1783.2637}
+      - {x: 4120.6724, y: 1766.5977}
+      - {x: 4133.172, y: 1766.5977}
+      - {x: 4158.171, y: 1774.9307}
+      - {x: 4158.171, y: 1808.2627}
+      - {x: 4116.506, y: 1808.2627}
+      - {x: 4108.173, y: 1799.9297}
     - - {x: 2208.247, y: 2070.7524}
       - {x: 2208.247, y: 2066.586}
       - {x: 2224.913, y: 2049.92}
@@ -692,73 +894,7 @@ TextureImporter:
       - {x: 2241.579, y: 2058.253}
       - {x: 2233.246, y: 2079.0854}
       - {x: 2216.58, y: 2079.0854}
-    physicsShape:
-    - - {x: 929.1304, y: -3533.1953}
-      - {x: 1329.1147, y: -3533.1953}
-      - {x: 1337.4478, y: -3508.1963}
-      - {x: 1333.2812, y: -3312.3706}
-      - {x: 2495.7358, y: -3316.537}
-      - {x: 2512.4019, y: -3337.3696}
-      - {x: 2524.9014, y: -3345.7026}
-      - {x: 2649.8965, y: -3362.3687}
-      - {x: 2787.391, y: -3358.2021}
-      - {x: 2791.5576, y: -3345.7026}
-      - {x: 2795.724, y: -3291.538}
-      - {x: 2795.724, y: 1020.79346}
-      - {x: 2804.0571, y: 1024.96}
-      - {x: 2804.0571, y: 1045.7925}
-      - {x: 2799.8906, y: 1058.292}
-      - {x: 2683.2285, y: 1174.9541}
-      - {x: 2679.062, y: 1337.4478}
-      - {x: 2670.729, y: 1383.2793}
-      - {x: 2570.733, y: 1499.9414}
-      - {x: 2308.2432, y: 1754.0981}
-      - {x: 2204.0806, y: 1845.7612}
-      - {x: 1995.7554, y: 2074.919}
-      - {x: 1983.2559, y: 2083.252}
-      - {x: 1320.7817, y: 2083.252}
-      - {x: 1320.7817, y: 2074.919}
-      - {x: 699.97266, y: 2083.252}
-      - {x: -499.98047, y: 2079.0854}
-      - {x: -499.98047, y: 2404.0728}
-      - {x: -554.145, y: 2495.7358}
-      - {x: -595.81006, y: 2554.067}
-      - {x: -624.9756, y: 2574.8994}
-      - {x: -933.2969, y: 2574.8994}
-      - {x: -949.9629, y: 2566.5664}
-      - {x: -962.4624, y: 2504.0688}
-      - {x: -962.4624, y: 2062.4194}
-      - {x: -2112.4175, y: 2062.4194}
-      - {x: -2120.7505, y: 2054.0864}
-      - {x: -2124.917, y: 1987.4224}
-      - {x: -2204.0806, y: 1854.0942}
-      - {x: -2195.7476, y: -1333.2812}
-      - {x: -2199.914, y: -1395.7788}
-      - {x: -2445.7378, y: -1383.2793}
-      - {x: -2483.2363, y: -1383.2793}
-      - {x: -2499.9023, y: -1408.2783}
-      - {x: -2504.0688, y: -1445.7769}
-      - {x: -2504.0688, y: -2174.915}
-      - {x: -2433.2383, y: -2416.5723}
-      - {x: -2362.4077, y: -2679.062}
-      - {x: -2304.0767, y: -2874.8877}
-      - {x: -2233.246, y: -3120.7114}
-      - {x: -2216.58, y: -3133.211}
-      - {x: -1495.7749, y: -3133.211}
-      - {x: -1491.6084, y: -3154.0435}
-      - {x: -1466.6094, y: -3208.208}
-      - {x: -1412.4448, y: -3329.0366}
-      - {x: -1379.1128, y: -3345.7026}
-      - {x: -1112.4565, y: -3345.7026}
-      - {x: -1095.7905, y: -3316.537}
-      - {x: -20.83252, y: -3312.3706}
-      - {x: -8.333008, y: -3408.2002}
-      - {x: 83.33008, y: -3516.5293}
-      - {x: 112.495605, y: -3533.1953}
-      - {x: 449.98242, y: -3533.1953}
-      - {x: 458.31543, y: -3504.0298}
-      - {x: 458.31543, y: -3466.5312}
-      - {x: 812.46826, y: -3466.5312}
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
