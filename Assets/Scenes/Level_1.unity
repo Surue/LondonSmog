@@ -187,11 +187,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -19.06
+      value: -18.01
       objectReference: {fileID: 0}
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.87
+      value: 7.38
       objectReference: {fileID: 0}
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.z
@@ -863,6 +863,11 @@ Prefab:
       propertyPath: m_Name
       value: "B\xE2timent_Bigben (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 212947085649666820, guid: 229a2e93fd841b243b53e6c5db6df995,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 229a2e93fd841b243b53e6c5db6df995, type: 2}
   m_IsPrefabParent: 0
@@ -1195,11 +1200,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.86
+      value: -13.64
       objectReference: {fileID: 0}
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.87
+      value: 7.39
       objectReference: {fileID: 0}
     - target: {fileID: 4720628410742644, guid: 616fcf1a3c44f0d4499e76e79950e242, type: 2}
       propertyPath: m_LocalPosition.z

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoint
   - SpawnPointWater
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Building
+    uniqueID: 2690614687
     locked: 0
   - name: Fog
     uniqueID: 3979757027

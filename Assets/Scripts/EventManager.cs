@@ -42,12 +42,14 @@ public class EventManager : MonoBehaviour
         EventType type;
         GameObject spawnPoint;
         GameObject mainObject;
+        GameObject npc;
 
         public Evenement(EventType eventType, GameObject spawn, GameObject coll)
         {
             type = eventType;
             spawnPoint = spawn;
             mainObject = coll;
+            npc = mainObject.transform.Find("NPC").gameObject;
         }
 
         public GameObject GetSpawnPoint()
@@ -63,6 +65,11 @@ public class EventManager : MonoBehaviour
         public EventType GetEventType()
         {
             return type;
+        }
+
+        public GameObject GetNPC()
+        {
+            return npc;
         }
     }
 
@@ -172,7 +179,7 @@ public class EventManager : MonoBehaviour
     }
 
     static public void LaunchEvent(GameObject currentEventZone)
-    {
+    { 
         if (currentEvenement.GetMainObject() == null)
         {
             foreach (Evenement evenement in evenements)
@@ -180,7 +187,7 @@ public class EventManager : MonoBehaviour
                 if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
                 {
                     currentEvenement = evenement;
-                    currentEvenement.GetMainObject().transform.parent = player.transform;
+                    currentEvenement.GetNPC().transform.parent = player.transform;
                     currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
                     break;
                 }
@@ -192,6 +199,7 @@ public class EventManager : MonoBehaviour
     {
         evenements.Remove(currentEvenement);
         Destroy(currentEvenement.GetMainObject());
+        Destroy(currentEvenement.GetNPC());
     }
 
     static public LayerMask ZoneToGo()
