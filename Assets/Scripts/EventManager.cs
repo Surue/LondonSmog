@@ -82,7 +82,9 @@ public class EventManager : MonoBehaviour
     {
         //Get all spawn point 
         GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
         spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
+        spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count, tmpSpawnPointWater);
 
         GenerateAllEventForTheDay();
 
@@ -115,32 +117,36 @@ public class EventManager : MonoBehaviour
                 }
             }
 
-            //Create new evenement
-            GameObject collider = null;
-            switch (tmpEventType)
+            GameObject tmpMainObject = null;
+
+            if(tmpSpawn.tag == "SpawnPointWater")
             {
-                case EventType.BOAT:
-                    collider = Instantiate(prefabBoatEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
-                    break;
+                tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+            }
+            else
+            {
+                //Create new evenement
+                switch(tmpEventType)
+                {
+                    case EventType.CAR_FIRE:
+                        tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                        break;
 
-                case EventType.CAR_FIRE:
-                    collider = Instantiate(prefabCarFireEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
-                    break;
+                    case EventType.LOST:
+                        tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                        break;
 
-                case EventType.LOST:
-                    collider = Instantiate(prefabLostEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
-                    break;
+                    case EventType.THIEF:
+                        tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                        break;
 
-                case EventType.THIEF:
-                    collider = Instantiate(prefabThiefEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
-                    break;
-
-                case EventType.WOUNDED:
-                    collider = Instantiate(prefabWoundedEvent, tmpSpawn.transform.position, tmpSpawn.transform.rotation);
-                    break;
+                    case EventType.WOUNDED:
+                        tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                        break;
+                }
             }
 
-            evenements.Add(new Evenement(tmpEventType,tmpSpawn, collider));
+            evenements.Add(new Evenement(tmpEventType,tmpSpawn,tmpMainObject));
         }
 
         foreach(GameObject spawn in spawnsPointForEvent)
