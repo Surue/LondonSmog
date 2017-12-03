@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
 
     static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
 
-    static int numberOfEvent = 5;
+    static int numberOfEvent = 10;
 
     static List<Evenement> evenements = new List<Evenement>();
 
@@ -84,7 +84,7 @@ public class EventManager : MonoBehaviour
         GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
         GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
         spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
-        spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count, tmpSpawnPointWater);
+        spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
 
         GenerateAllEventForTheDay();
 
@@ -128,6 +128,10 @@ public class EventManager : MonoBehaviour
                 //Create new evenement
                 switch(tmpEventType)
                 {
+                    case EventType.BOAT:
+                        tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                        break;
+
                     case EventType.CAR_FIRE:
                         tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
@@ -144,9 +148,9 @@ public class EventManager : MonoBehaviour
                         tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
                 }
-            }
+        }
 
-            evenements.Add(new Evenement(tmpEventType,tmpSpawn,tmpMainObject));
+        evenements.Add(new Evenement(tmpEventType,tmpSpawn,tmpMainObject));
         }
 
         foreach(GameObject spawn in spawnsPointForEvent)
