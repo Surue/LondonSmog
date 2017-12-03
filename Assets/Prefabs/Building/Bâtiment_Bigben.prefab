@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4873501583616202}
   - component: {fileID: 212947085649666820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "B\xE2timent_Bigben_sol"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 61410146364027744}
   - component: {fileID: 61916303410148310}
   - component: {fileID: 61717008009190494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "B\xE2timent_Bigben"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,8 +57,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902620238665112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.36, y: 10.66, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
+  m_LocalPosition: {x: -5.44, y: 12.87, z: 0}
+  m_LocalScale: {x: 0.3388545, y: 0.34864026, z: 0.5}
   m_Children:
   - {fileID: 4873501583616202}
   m_Father: {fileID: 0}
@@ -269,9 +269,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingLayerID: -1604352609
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6278092776339a94b9ff3863ddffbe32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

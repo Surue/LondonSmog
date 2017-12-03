@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     float intoxicationLevel = 0.0f;
     float timeInSecondsCanGoOut = 120f;
 
+    GameManager gameManager;
+
     public enum EventState
     {
         OUT_EVENT_ZONE,
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
 	void Start ()
     {
         body = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
         StartCoroutine(getIntoxicate());
 	}
 
@@ -59,7 +63,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        Debug.Log(intoxicationLevel);
+        
     }
 
     IEnumerator getIntoxicate()
@@ -70,6 +74,11 @@ public class Player : MonoBehaviour
             {
                 intoxicationLevel += 100 / timeInSecondsCanGoOut;
                 gaugeIntoxication.fillAmount = intoxicationLevel / 100;
+
+                if(intoxicationLevel >= 100)
+                {
+                    gameManager.LoadSceneWithName("DeathScreen");
+                }
             }
             yield return new WaitForSeconds(1);
         }

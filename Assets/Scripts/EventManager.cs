@@ -102,7 +102,7 @@ public class EventManager : MonoBehaviour
         for (int i = 0; i < numberOfEvent; i++)
         {
             //Random event
-            EventType tmpEventType = (EventType)Random.Range(0, (float)EventType.LENGTH);
+            EventType tmpEventType;
 
             //Random free Position
             GameObject tmpSpawn = null;
@@ -121,17 +121,16 @@ public class EventManager : MonoBehaviour
 
             if(tmpSpawn.tag == "SpawnPointWater")
             {
+                tmpEventType = EventType.BOAT;
                 tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
             }
             else
             {
+                tmpEventType = (EventType)Random.Range(0,(float)EventType.BOAT);
+
                 //Create new evenement
                 switch(tmpEventType)
                 {
-                    case EventType.BOAT:
-                        tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                        break;
-
                     case EventType.CAR_FIRE:
                         tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                         break;
