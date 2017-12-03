@@ -204,6 +204,7 @@ public class EventManager : MonoBehaviour
 
     static public LayerMask ZoneToGo()
     {
+        Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
             case EventType.BOAT:
