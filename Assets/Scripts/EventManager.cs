@@ -24,6 +24,8 @@ public class EventManager : MonoBehaviour
 
     static Evenement currentEvenement;
 
+    static GameObject player;
+
     //type of event
     enum EventType
     {
@@ -83,6 +85,8 @@ public class EventManager : MonoBehaviour
         spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
 
         GenerateAllEventForTheDay();
+
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -147,7 +151,6 @@ public class EventManager : MonoBehaviour
 
     static bool CheckIfPositionIsFree(GameObject spawn)
     {
-
         foreach (Evenement evenement in evenements)
         {
             if (evenement.GetSpawnPoint().GetInstanceID() == spawn.GetInstanceID())
@@ -161,12 +164,17 @@ public class EventManager : MonoBehaviour
 
     static public void LaunchEvent(GameObject currentEventZone)
     {
-        foreach (Evenement evenement in evenements)
+        if (currentEvenement.GetMainObject() == null)
         {
-            if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
+            foreach (Evenement evenement in evenements)
             {
-                currentEvenement = evenement;
-                break;
+                if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
+                {
+                    currentEvenement = evenement;
+                    currentEvenement.GetMainObject().transform.parent = player.transform;
+                    currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
+                    break;
+                }
             }
         }
     }
@@ -179,7 +187,6 @@ public class EventManager : MonoBehaviour
 
     static public LayerMask ZoneToGo()
     {
-        Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
             case EventType.BOAT:

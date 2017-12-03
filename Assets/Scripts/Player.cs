@@ -41,11 +41,9 @@ public class Player : MonoBehaviour
                 break;
 
             case EventState.ON_EVENT_ZONE:
-                if(Input.GetMouseButtonDown(0))
-                {
                     EventManager.LaunchEvent(currentEventZone);
                     state = EventState.ON_EVENT;
-                }
+                
                 break;
 
             case EventState.ON_EVENT:
@@ -69,7 +67,6 @@ public class Player : MonoBehaviour
 
         if(eventEnCours && collision.gameObject.layer == EventManager.ZoneToGo())
         {
-            Debug.Log("Fin de l'event");
             EventManager.EndEvent();
             state = EventState.OUT_EVENT_ZONE;
         }

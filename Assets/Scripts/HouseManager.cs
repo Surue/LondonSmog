@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class HouseManager : MonoBehaviour
 {
-    [SerializeField]
+   
     SpriteRenderer facade;
 
 	void Start ()
     {
-        
+        facade = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	void Update ()
