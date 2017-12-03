@@ -1,0 +1,153 @@
+
+Personnages.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Blessés
+  rotate: false
+  xy: 2, 23
+  size: 151, 82
+  orig: 151, 82
+  offset: 0, 0
+  index: -1
+Etoile
+  rotate: false
+  xy: 1007, 232
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+Exclamation_Txt
+  rotate: false
+  xy: 955, 234
+  size: 50, 19
+  orig: 50, 19
+  offset: 0, 0
+  index: -1
+HELP_TXT
+  rotate: true
+  xy: 155, 67
+  size: 38, 24
+  orig: 38, 24
+  offset: 0, 0
+  index: -1
+M_D
+  rotate: true
+  xy: 807, 180
+  size: 73, 146
+  orig: 73, 146
+  offset: 0, 0
+  index: -1
+M_D_02
+  rotate: true
+  xy: 371, 104
+  size: 69, 146
+  orig: 69, 146
+  offset: 0, 0
+  index: -1
+M_D_03
+  rotate: true
+  xy: 519, 98
+  size: 73, 146
+  orig: 73, 146
+  offset: 0, 0
+  index: -1
+M_F
+  rotate: false
+  xy: 97, 107
+  size: 90, 146
+  orig: 90, 146
+  offset: 0, 0
+  index: -1
+M_F_02
+  rotate: true
+  xy: 189, 38
+  size: 71, 146
+  orig: 71, 146
+  offset: 0, 0
+  index: -1
+M_F_03
+  rotate: true
+  xy: 371, 175
+  size: 78, 146
+  orig: 78, 146
+  offset: 0, 0
+  index: -1
+M_G_F
+  rotate: false
+  xy: 282, 111
+  size: 87, 142
+  orig: 87, 142
+  offset: 0, 0
+  index: -1
+M_G_F_02
+  rotate: true
+  xy: 519, 173
+  size: 80, 142
+  orig: 80, 142
+  offset: 0, 0
+  index: -1
+M_G_F_03
+  rotate: false
+  xy: 189, 111
+  size: 91, 142
+  orig: 91, 142
+  offset: 0, 0
+  index: -1
+M_G_H
+  rotate: true
+  xy: 815, 106
+  size: 72, 142
+  orig: 72, 142
+  offset: 0, 0
+  index: -1
+M_G_H_02
+  rotate: true
+  xy: 337, 38
+  size: 64, 142
+  orig: 64, 142
+  offset: 0, 0
+  index: -1
+M_G_H_03
+  rotate: true
+  xy: 663, 175
+  size: 78, 142
+  orig: 78, 142
+  offset: 0, 0
+  index: -1
+Mort
+  rotate: false
+  xy: 815, 6
+  size: 99, 98
+  orig: 99, 98
+  offset: 0, 0
+  index: -1
+croupi
+  rotate: true
+  xy: 481, 18
+  size: 78, 116
+  orig: 78, 116
+  offset: 0, 0
+  index: -1
+whereami_01
+  rotate: false
+  xy: 2, 107
+  size: 93, 146
+  orig: 93, 146
+  offset: 0, 0
+  index: -1
+whereami_02
+  rotate: true
+  xy: 667, 100
+  size: 73, 146
+  orig: 73, 146
+  offset: 0, 0
+  index: -1
+whereami_txt
+  rotate: false
+  xy: 2, 2
+  size: 88, 19
+  orig: 88, 19
+  offset: 0, 0
+  index: -1
