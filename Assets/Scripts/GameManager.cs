@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    int indexLastScene = -1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,11 +19,17 @@ public class GameManager : MonoBehaviour {
 
     public void LoadSceneWithName(string nameScene)
     {
+        indexLastScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(nameScene);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void LoadLastScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetSceneAt(indexLastScene).name);
     }
 }
