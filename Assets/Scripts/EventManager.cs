@@ -126,7 +126,6 @@ public class EventManager : MonoBehaviour
                 {
                     tmpEventType = Evenement.EventType.LOST_OBJECT;
                     tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                    Debug.Log("ICI");
                 }
                 else
                 {

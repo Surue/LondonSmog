@@ -12,7 +12,7 @@ public class InfoPlayer : MonoBehaviour {
 
     int currentDay = 0;
 
-    const float dayDurationInSeconds = 120f;
+    const float dayDurationInSeconds = 180f;
 
     float timeGaineLastTime = 0;
 
@@ -60,6 +60,8 @@ public class InfoPlayer : MonoBehaviour {
         player.LauncheCoroutine();
 
         timeGaineLastTime = 0;
+
+        GameObject.FindObjectOfType<TimeRemaning>().SetTimeForLevel(dayDurationInSeconds + timeGaineLastTime);
 
         //Debug.Log(scoreBoat + "boat");
         //Debug.Log(scoreCarFire + "car fire");
