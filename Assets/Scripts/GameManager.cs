@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour {
                 currentScoreLost++;
                 break;
 
-            case Evenement.EventType.THIEF:
+            case Evenement.EventType.LOST_OBJECT:
                 currentScoreLostObject++;
                 break;
         }
