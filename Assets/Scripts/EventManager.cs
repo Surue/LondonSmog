@@ -68,10 +68,13 @@ public class EventManager : MonoBehaviour
             //Get all spawn point 
             GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
             GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
+
             GameObject[] tmpSpawnPointHouse = GameObject.FindGameObjectsWithTag("SpawnPointHouse");
+
             spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
             spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
-            spawnsPointForLostObject.InsertRange(spawnsPointForLostObject.Count - 1, tmpSpawnPointHouse);
+
+            spawnsPointForLostObject.InsertRange(0, tmpSpawnPointHouse);
 
             GenerateAllEventForTheDay();
         }
@@ -169,17 +172,18 @@ public class EventManager : MonoBehaviour
         {
             for(int i = 0;i < numberOfStolenObject;i++)
             {
+                Debug.Log(i);
                 //Random free Position
                 GameObject tmpSpawn = null;
                 while(tmpSpawn == null)
                 {
-                    tmpSpawn = spawnsPointForEvent[Random.Range(0,spawnsPointForEvent.Count)];
+                    tmpSpawn = spawnsPointForLostObject[Random.Range(0,spawnsPointForLostObject.Count)];
                 }
 
                 GameObject tmpMainObject = null;
                 Evenement.EventType tmpEventType = Evenement.EventType.LOST_OBJECT;
                 tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                
+
                 Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
                 tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
 
