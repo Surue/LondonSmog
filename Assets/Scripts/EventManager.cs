@@ -18,8 +18,10 @@ public class EventManager : MonoBehaviour
     GameObject prefabCarFireEvent;
 
     static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
+    static List<GameObject> spawnsPointForLostObject = new List<GameObject>();
 
     static int numberOfEvent = 7;
+    static int numberOfStolenObject = 4; 
 
     static List<Evenement> evenements = new List<Evenement>();
 
@@ -69,7 +71,7 @@ public class EventManager : MonoBehaviour
             GameObject[] tmpSpawnPointHouse = GameObject.FindGameObjectsWithTag("SpawnPointHouse");
             spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
             spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
-            spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointHouse);
+            spawnsPointForLostObject.InsertRange(spawnsPointForLostObject.Count - 1, tmpSpawnPointHouse);
 
             GenerateAllEventForTheDay();
         }
@@ -161,6 +163,35 @@ public class EventManager : MonoBehaviour
                 Destroy(spawn);
             }
             spawnsPointForEvent.RemoveRange(0,spawnsPointForEvent.Count);
+        }
+
+        if(spawnsPointForLostObject.Count != 0)
+        {
+            for(int i = 0;i < numberOfStolenObject;i++)
+            {
+                //Random free Position
+                GameObject tmpSpawn = null;
+                while(tmpSpawn == null)
+                {
+                    tmpSpawn = spawnsPointForEvent[Random.Range(0,spawnsPointForEvent.Count)];
+                }
+
+                GameObject tmpMainObject = null;
+                Evenement.EventType tmpEventType = Evenement.EventType.LOST_OBJECT;
+                tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                
+                Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
+                tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
+
+                evenements.Add(tmpEvenement);
+                spawnsPointForLostObject.Remove(tmpSpawn);
+            }
+
+            foreach(GameObject spawn in spawnsPointForLostObject)
+            {
+                Destroy(spawn);
+            }
+            spawnsPointForLostObject.RemoveRange(0,spawnsPointForLostObject.Count);
         }
     }
 
