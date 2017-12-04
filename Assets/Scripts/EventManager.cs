@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
 
     static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
 
-    static int numberOfEvent = 2;
+    static int numberOfEvent = 1;
 
     static List<Evenement> evenements = new List<Evenement>();
 
@@ -27,6 +27,8 @@ public class EventManager : MonoBehaviour
     public static GameObject player;
 
     GameManager gameManager;
+
+    bool levelFinised = false;
 
     // Use this for initialization
     void Start()
@@ -42,7 +44,7 @@ public class EventManager : MonoBehaviour
         player = GameObject.Find("Player");
 
         currentEvenement = null;
-
+        Debug.Log("Cree nouveau eventManager");
         gameManager = GameObject.FindObjectOfType<GameManager>();
         Debug.Log(gameManager);
     }
@@ -55,74 +57,88 @@ public class EventManager : MonoBehaviour
             currentEvenement.SetVelocity();
         }
 
+        if(levelFinised)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void LateUpdate()
+    {
         if(evenements.Count == 0)
         {
             Debug.Log("Succes day");
+            levelFinised = true;
             gameManager.SuccesDay();
         }
     }
 
     void GenerateAllEventForTheDay()
     {
-        for (int i = 0; i < numberOfEvent; i++)
+        if(spawnsPointForEvent.Count != 0)
         {
-            //Random event
-            Evenement.EventType tmpEventType;
-
-            //Random free Position
-            GameObject tmpSpawn = null;
-            bool found = false;
-            while (!found)
+            Debug.Log("Nombre de spawn"+spawnsPointForEvent.Count);
+            for(int i = 0;i < numberOfEvent;i++)
             {
-                tmpSpawn = spawnsPointForEvent[Random.Range(0, spawnsPointForEvent.Count)];
+                //Random event
+                Evenement.EventType tmpEventType;
 
-                if (CheckIfPositionIsFree(tmpSpawn))
+                //Random free Position
+                GameObject tmpSpawn = null;
+                bool found = false;
+                while(!found)
                 {
-                    found = true;
+                    tmpSpawn = spawnsPointForEvent[Random.Range(0,spawnsPointForEvent.Count)];
+
+                    if(CheckIfPositionIsFree(tmpSpawn))
+                    {
+                        found = true;
+                    }
                 }
+
+                GameObject tmpMainObject = null;
+
+                if(tmpSpawn.tag == "SpawnPointWater")
+                {
+                    tmpEventType = Evenement.EventType.BOAT;
+                    tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                }
+                else
+                {
+                    tmpEventType = (Evenement.EventType)Random.Range(0,(float)Evenement.EventType.BOAT);
+
+                    //Create new evenement
+                    switch(tmpEventType)
+                    {
+                        case Evenement.EventType.CAR_FIRE:
+                            tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                            break;
+
+                        case Evenement.EventType.LOST:
+                            tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                            break;
+
+                        case Evenement.EventType.THIEF:
+                            tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                            break;
+
+                        case Evenement.EventType.WOUNDED:
+                            tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                            break;
+                    }
+                }
+
+                Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
+                tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
+
+                evenements.Add(tmpEvenement); //TO DO
             }
 
-            GameObject tmpMainObject = null;
-
-            if(tmpSpawn.tag == "SpawnPointWater")
+            foreach(GameObject spawn in spawnsPointForEvent)
             {
-                tmpEventType = Evenement.EventType.BOAT;
-                tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                Destroy(spawn);
             }
-            else
-            {
-                tmpEventType = (Evenement.EventType)Random.Range(0,(float)Evenement.EventType.BOAT);
-
-                //Create new evenement
-                switch(tmpEventType)
-                {
-                    case Evenement.EventType.CAR_FIRE:
-                        tmpMainObject = Instantiate(prefabCarFireEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                        break;
-
-                    case Evenement.EventType.LOST:
-                        tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                        break;
-
-                    case Evenement.EventType.THIEF:
-                        tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                        break;
-
-                    case Evenement.EventType.WOUNDED:
-                        tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                        break;
-                }
-        }
-
-        Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
-        tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
-
-        evenements.Add(tmpEvenement); //TO DO
-        }
-
-        foreach(GameObject spawn in spawnsPointForEvent)
-        {
-            Destroy(spawn);
+            spawnsPointForEvent.RemoveRange(0,spawnsPointForEvent.Count);
         }
     }
 

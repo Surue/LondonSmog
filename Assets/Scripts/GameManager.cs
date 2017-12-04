@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour {
 
     public void SuccesDay()
     {
+        Debug.Log("GameManager: SuccesDay()");
         float gainTime = InfoPlayer.Instance.GetTimeInSecondsForADay() - player.GetPassedTime();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
