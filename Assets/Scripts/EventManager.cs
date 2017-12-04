@@ -26,7 +26,7 @@ public class EventManager : MonoBehaviour
 
     public static GameObject player;
 
-    GameManager gameManager;
+    static GameManager gameManager;
 
     bool levelFinised = false;
 
@@ -44,9 +44,7 @@ public class EventManager : MonoBehaviour
         player = GameObject.Find("Player");
 
         currentEvenement = null;
-        Debug.Log("Cree nouveau eventManager");
         gameManager = GameObject.FindObjectOfType<GameManager>();
-        Debug.Log(gameManager);
     }
 
     // Update is called once per frame
@@ -77,7 +75,6 @@ public class EventManager : MonoBehaviour
     {
         if(spawnsPointForEvent.Count != 0)
         {
-            Debug.Log("Nombre de spawn"+spawnsPointForEvent.Count);
             for(int i = 0;i < numberOfEvent;i++)
             {
                 //Random event
@@ -175,6 +172,7 @@ public class EventManager : MonoBehaviour
 
     static public void EndEvent()
     {
+        gameManager.AddScore(currentEvenement.GetEventType());
         evenements.Remove(currentEvenement);
         Destroy(currentEvenement.GetNPC());
         Destroy(currentEvenement.GetMainObject());

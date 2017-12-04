@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InfoPlayer : MonoBehaviour {
 
-    int scoreLost;
-    int scoreBoat;
-    int scoreCarFire;
-    int scoreWounded;
-    int scoreLostObject;
+    int scoreLost = 0;
+    int scoreBoat = 0;
+    int scoreCarFire = 0;
+    int scoreWounded = 0;
+    int scoreLostObject = 0;
 
     int currentDay = 0;
 
@@ -60,6 +60,12 @@ public class InfoPlayer : MonoBehaviour {
         player.LauncheCoroutine();
 
         timeGaineLastTime = 0;
+
+        //Debug.Log(scoreBoat + "boat");
+        //Debug.Log(scoreCarFire + "car fire");
+        //Debug.Log(scoreLost + "lost");
+        //Debug.Log(scoreLostObject + "lost object");
+        //Debug.Log(scoreWounded + "wounded");
     }
 
     public void RestartDay()
@@ -75,5 +81,14 @@ public class InfoPlayer : MonoBehaviour {
     public void AddTimeForNextDay(float timeExcedant)
     {
         timeGaineLastTime = timeExcedant;
+    }
+
+    public void AddScore(int scoreBoat, int scoreCarFire, int scoreLost, int scoreLostObject, int scoreWounded)
+    {
+        this.scoreBoat += scoreBoat;
+        this.scoreCarFire += scoreCarFire;
+        this.scoreLost += scoreLost;
+        this.scoreLostObject += scoreLostObject;
+        this.scoreWounded += scoreWounded;
     }
 }

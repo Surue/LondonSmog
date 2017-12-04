@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    int currentScoreLost;
+    int currentScoreBoat;
+    int currentScoreCarFire;
+    int currentScoreWounded;
+    int currentScoreLostObject;
+
     int indexLastScene = -1;
     Player player;
 
@@ -54,8 +60,34 @@ public class GameManager : MonoBehaviour {
 
     public void SuccesDay()
     {
-        Debug.Log("GameManager: SuccesDay()");
+        InfoPlayer.Instance.AddScore(currentScoreBoat, currentScoreCarFire, currentScoreLost, currentScoreLostObject, currentScoreWounded);
         float gainTime = InfoPlayer.Instance.GetTimeInSecondsForADay() - player.GetPassedTime();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void AddScore(Evenement.EventType evenement)
+    {
+        switch(evenement)
+        {
+            case Evenement.EventType.BOAT:
+                currentScoreBoat++;
+                break;
+
+            case Evenement.EventType.CAR_FIRE:
+                currentScoreCarFire++;
+                break;
+
+            case Evenement.EventType.WOUNDED:
+                currentScoreWounded++;
+                break;
+
+            case Evenement.EventType.LOST:
+                currentScoreLost++;
+                break;
+
+            case Evenement.EventType.THIEF:
+                currentScoreLostObject++;
+                break;
+        }
     }
 }
