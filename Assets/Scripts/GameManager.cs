@@ -61,7 +61,9 @@ public class GameManager : MonoBehaviour {
     public void SuccesDay()
     {
         InfoPlayer.Instance.AddScore(currentScoreBoat, currentScoreCarFire, currentScoreLost, currentScoreLostObject, currentScoreWounded);
+
         float gainTime = InfoPlayer.Instance.GetTimeInSecondsForADay() - player.GetPassedTime();
+        InfoPlayer.Instance.AddTimeForNextDay(gainTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -19,7 +19,7 @@ public class EventManager : MonoBehaviour
 
     static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
 
-    static int numberOfEvent = 10;
+    static int numberOfEvent = 1;
 
     static List<Evenement> evenements = new List<Evenement>();
 
@@ -96,7 +96,6 @@ public class EventManager : MonoBehaviour
     {
         if(evenements.Count == 0)
         {
-            Debug.Log("Succes day");
             levelFinised = true;
             gameManager.SuccesDay();
         }
