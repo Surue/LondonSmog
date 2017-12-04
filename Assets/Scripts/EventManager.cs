@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class EventManager : MonoBehaviour
 
     static List<GameObject> spawnsPointForEvent = new List<GameObject>(); //List of spawn point for all event
 
-    static int numberOfEvent = 1;
+    static int numberOfEvent = 10;
 
     static List<Evenement> evenements = new List<Evenement>();
 
@@ -33,15 +34,43 @@ public class EventManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Get all spawn point 
-        GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
-        GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
-        spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
-        spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
-
-        GenerateAllEventForTheDay();
-
         player = GameObject.Find("Player");
+
+        if (SceneManager.GetActiveScene().name == "Tuto")
+        {
+            Evenement[] tmpEvenement = GameObject.FindObjectsOfType<Evenement>();
+            foreach(Evenement tmpEvent in tmpEvenement)
+            {
+                switch (tmpEvent.name)
+                {
+                    case "EventLost":
+                        tmpEvent.Set(Evenement.EventType.LOST, GameObject.Find("NPC"), tmpEvent.gameObject);
+                        break;
+
+                    case "EventWounded":
+                        tmpEvent.Set(Evenement.EventType.WOUNDED, GameObject.Find("NPC"), tmpEvent.gameObject);
+                        break;
+
+                    case "EventThief":
+                        tmpEvent.Set(Evenement.EventType.LOST_OBJECT, GameObject.Find("NPC"), tmpEvent.gameObject);
+                        break;
+
+                }
+                
+            }
+            evenements.InsertRange(0, tmpEvenement);
+        }
+
+        else
+        {
+            //Get all spawn point 
+            GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
+            GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
+            spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
+            spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
+
+            GenerateAllEventForTheDay();
+        }
 
         currentEvenement = null;
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -115,7 +144,7 @@ public class EventManager : MonoBehaviour
                             tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                             break;
 
-                        case Evenement.EventType.THIEF:
+                        case Evenement.EventType.LOST_OBJECT:
                             tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                             break;
 
@@ -153,7 +182,7 @@ public class EventManager : MonoBehaviour
     }
 
     static public void LaunchEvent(GameObject currentEventZone)
-    { 
+    {
         if (currentEvenement == null)
         {
             foreach (Evenement evenement in evenements)
@@ -181,7 +210,6 @@ public class EventManager : MonoBehaviour
 
     static public LayerMask ZoneToGo()
     {
-        Debug.Log(currentEvenement.GetEventType());
         switch (currentEvenement.GetEventType())
         {
             case Evenement.EventType.BOAT:
@@ -190,9 +218,10 @@ public class EventManager : MonoBehaviour
                 return LayerMask.NameToLayer("Hospital");
 
             case Evenement.EventType.LOST:
+                Debug.Log("ICI");
                 return LayerMask.NameToLayer("House");
 
-            case Evenement.EventType.THIEF:
+            case Evenement.EventType.LOST_OBJECT:
                 return LayerMask.NameToLayer("PoliceStation");
         }
 

@@ -94,8 +94,8 @@ public class Player:MonoBehaviour
             state = EventState.ON_EVENT_ZONE;
             currentEventZone = collision.gameObject;
         }
-
-        if(eventEnCours && collision.gameObject.layer == EventManager.ZoneToGo())
+        
+        if (eventEnCours && collision.gameObject.layer == EventManager.ZoneToGo())
         {
             EventManager.EndEvent();
             state = EventState.OUT_EVENT_ZONE;
