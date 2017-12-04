@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
                 break;
 
             default:
-                Debug.Log(SceneManager.GetActiveScene().name);
                 break;
         }
 	}
