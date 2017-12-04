@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Spine.Unity;
 
 public class Player:MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class Player:MonoBehaviour
     float timeInSecondsCanGoOut = 0;
     float timePassed = 0;
 
+    bool lookingRight = false;
+    SkeletonAnimation skeletonAnimation;
+
+
     GameManager gameManager;
 
     public enum EventState
@@ -35,6 +40,8 @@ public class Player:MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        skeletonAnimation = transform.Find("skeleton").GetComponent<SkeletonAnimation>();
     }
 
     void Update()
@@ -62,7 +69,7 @@ public class Player:MonoBehaviour
                 break;
         }
 
-
+        ManageAnimation();
     }
 
     public IEnumerator GetIntoxicate()
@@ -145,5 +152,55 @@ public class Player:MonoBehaviour
     public bool IsInSafeZone()
     {
         return isInSafeZone;
+    }
+
+    void Flip()
+    {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+        lookingRight = !lookingRight;
+    }
+
+    void ManageAnimation()
+    {
+        if(Mathf.Abs(body.velocity.x) > 0 || Mathf.Abs(body.velocity.y) > 0)
+        {
+            skeletonAnimation.timeScale = 1;
+        }
+        else
+        {
+            skeletonAnimation.timeScale = 0;
+        }
+
+        if(Mathf.Abs(body.velocity.x) > Mathf.Abs(body.velocity.y))
+        {
+            skeletonAnimation.AnimationName = "Marche_Cote";
+            if(body.velocity.x > 0)
+            {
+                if(!lookingRight)
+                {
+                    Flip();
+                }
+            }
+            else
+            {
+                if(lookingRight)
+                {
+                    Flip();
+                }
+            }
+        }
+        else
+        {
+            if(body.velocity.y > 0)
+            {
+                skeletonAnimation.AnimationName = "Marche_Dos";
+            }
+            else
+            {
+                skeletonAnimation.AnimationName = "Marche_Face";
+            }
+        }
     }
 }

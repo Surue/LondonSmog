@@ -23,7 +23,6 @@ public class InfoPlayer : MonoBehaviour {
     {
         if(Instance != null)
         {
-            Destroy(gameObject);
             Debug.Log("Multiple instances of InfoPlayer");
         }
         Instance = this;

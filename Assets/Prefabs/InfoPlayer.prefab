@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524432323748370}
   - component: {fileID: 114923255733019134}
+  - component: {fileID: 114770872894070424}
   m_Layer: 0
   m_Name: InfoPlayer
   m_TagString: Untagged
@@ -40,6 +41,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114770872894070424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881415023932550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7900c4cab2d55478beb68dde5dac4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigBen: {fileID: 8300000, guid: 0dd4ae447603bf74eb3cdadc3019b8f2, type: 3}
+  help: {fileID: 8300000, guid: b25c4dc8ccd86ce4e9fae3dd109c020f, type: 3}
+  hello: {fileID: 8300000, guid: 6df80d7cc079b2546b8bb641176f8017, type: 3}
+  citizenSave: {fileID: 8300000, guid: 1d1176cdb65fcf24f89af6bc5db21294, type: 3}
 --- !u!114 &114923255733019134
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -171,8 +171,7 @@ public class EventManager : MonoBehaviour
         if(spawnsPointForLostObject.Count != 0)
         {
             for(int i = 0;i < numberOfStolenObject;i++)
-            {
-                Debug.Log(i);
+            { 
                 //Random free Position
                 GameObject tmpSpawn = null;
                 while(tmpSpawn == null)
@@ -216,6 +215,7 @@ public class EventManager : MonoBehaviour
     {
         if (currentEvenement == null)
         {
+            Debug.Log("ICI");
             foreach (Evenement evenement in evenements)
             {
                 if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
@@ -243,22 +243,24 @@ public class EventManager : MonoBehaviour
 
     static public LayerMask ZoneToGo()
     {
-        switch (currentEvenement.GetEventType())
+        if(currentEvenement != null)
         {
-            case Evenement.EventType.BOAT:
-            case Evenement.EventType.CAR_FIRE:
-            case Evenement.EventType.WOUNDED:
-                return LayerMask.NameToLayer("Hospital");
+            switch(currentEvenement.GetEventType())
+            {
+                case Evenement.EventType.BOAT:
+                case Evenement.EventType.CAR_FIRE:
+                case Evenement.EventType.WOUNDED:
+                    return LayerMask.NameToLayer("Hospital");
 
-            case Evenement.EventType.LOST:
-                Debug.Log("ICI");
-                return LayerMask.NameToLayer("House");
+                case Evenement.EventType.LOST:
+                    return LayerMask.NameToLayer("House");
 
-            case Evenement.EventType.LOST_OBJECT:
-                return LayerMask.NameToLayer("PoliceStation");
+                case Evenement.EventType.LOST_OBJECT:
+                    return LayerMask.NameToLayer("PoliceStation");
+            }
+
+            Debug.LogError("NO ZONE SELECTED, ERROR IN EVENT TYPE");
         }
-
-        Debug.LogError("NO ZONE SELECTED, ERROR IN EVENT TYPE");
         return LayerMask.NameToLayer("");
     }
 }
