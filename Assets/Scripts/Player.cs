@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player:MonoBehaviour
 {
     [SerializeField]
     float speed;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     GameObject currentEventZone = null;
     bool isInSafeZone = false;
     float intoxicationLevel = 0.0f;
-    float timeInSecondsCanGoOut = 120f;
+    float timeInSecondsCanGoOut = 0;
 
     GameManager gameManager;
 
@@ -30,15 +30,13 @@ public class Player : MonoBehaviour
     }
     EventState state = EventState.OUT_EVENT_ZONE;
 
-	void Start ()
+    void Start()
     {
         body = GetComponent<Rigidbody2D>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+    }
 
-        StartCoroutine(getIntoxicate());
-	}
-
-    void Update ()
+    void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -53,9 +51,9 @@ public class Player : MonoBehaviour
                 break;
 
             case EventState.ON_EVENT_ZONE:
-                    EventManager.LaunchEvent(currentEventZone);
-                    state = EventState.ON_EVENT;
-                
+                EventManager.LaunchEvent(currentEventZone);
+                state = EventState.ON_EVENT;
+
                 break;
 
             case EventState.ON_EVENT:
@@ -63,10 +61,10 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        
+
     }
 
-    IEnumerator getIntoxicate()
+    public IEnumerator GetIntoxicate()
     {
         while(true)
         {
@@ -77,7 +75,7 @@ public class Player : MonoBehaviour
 
                 if(intoxicationLevel >= 100)
                 {
-                    gameManager.LoadSceneWithName("DeathScreen");
+                    gameManager.Death();
                 }
             }
             yield return new WaitForSeconds(1);
@@ -111,7 +109,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Event") && !eventEnCours)
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Event") && !eventEnCours)
         {
             state = EventState.OUT_EVENT_ZONE;
         }
@@ -120,5 +118,25 @@ public class Player : MonoBehaviour
         {
             isInSafeZone = false;
         }
+    }
+
+    public void UpdateIntoxication(int startingIntoxication)
+    {
+        intoxicationLevel += startingIntoxication;
+    }
+
+    public void UpdateTimeForTheDay(float timeForTheDayInSeconds)
+    {
+        timeInSecondsCanGoOut = timeForTheDayInSeconds;
+    }
+
+    public void LauncheCoroutine()
+    {
+        StartCoroutine(GetIntoxicate());
+    }
+
+    public float GetPassedTime()
+    {
+        return timeInSecondsCanGoOut;
     }
 }

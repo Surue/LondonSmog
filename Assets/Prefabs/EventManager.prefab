@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1494497565801156}
+  m_IsPrefabParent: 1
+--- !u!1 &1494497565801156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4393948649671956}
+  - component: {fileID: 114461305293138384}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4393948649671956
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494497565801156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4194465, y: 5.60342, z: -0.03215834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114461305293138384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494497565801156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d6125da71813d40a700b2ce64e58db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabBoatEvent: {fileID: 1841880811722232, guid: db2f1a313e682d44aa4e89b8e3a4fbaf,
+    type: 2}
+  prefabThiefEvent: {fileID: 1409825914053608, guid: e3e7cbe97e7c8204280a062e5a9c9345,
+    type: 2}
+  prefabLostEvent: {fileID: 1511359439059748, guid: a30fc35126527ad41bdce63a85df7fe1,
+    type: 2}
+  prefabWoundedEvent: {fileID: 1924953866335148, guid: 1e3acc22cea1e7b4f9aed27275ba44d3,
+    type: 2}
+  prefabCarFireEvent: {fileID: 1417346559175158, guid: a71878d8da3f6c84c863a43058f224d7,
+    type: 2}
+  gameManager: {fileID: 0}
