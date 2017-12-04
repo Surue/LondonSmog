@@ -139,4 +139,9 @@ public class Player:MonoBehaviour
     {
         return timeInSecondsCanGoOut;
     }
+
+    public bool IsInSafeZone()
+    {
+        return isInSafeZone;
+    }
 }

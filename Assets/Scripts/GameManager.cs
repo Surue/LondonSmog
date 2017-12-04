@@ -65,6 +65,17 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void FinishDay()
+    {
+        InfoPlayer.Instance.AddScore(currentScoreBoat,currentScoreCarFire,currentScoreLost,currentScoreLostObject,currentScoreWounded);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void EndOfTime()
+    {
+        FinishDay();
+    }
+
     public void AddScore(Evenement.EventType evenement)
     {
         switch(evenement)
