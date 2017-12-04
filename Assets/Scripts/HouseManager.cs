@@ -6,6 +6,7 @@ public class HouseManager : MonoBehaviour
 {
    
     SpriteRenderer facade;
+    Player
 
 	void Start ()
     {

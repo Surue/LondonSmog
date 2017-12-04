@@ -112,7 +112,10 @@ public class EventManager : MonoBehaviour
 
                 //Random free Position
                 GameObject tmpSpawn = null;
+                while(tmpSpawn == null)
+                {
                     tmpSpawn = spawnsPointForEvent[Random.Range(0,spawnsPointForEvent.Count)];
+                }
 
                 GameObject tmpMainObject = null;
 
@@ -149,7 +152,8 @@ public class EventManager : MonoBehaviour
                 Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
                 tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
 
-                evenements.Add(tmpEvenement); //TO DO
+                evenements.Add(tmpEvenement);
+                spawnsPointForEvent.Remove(tmpSpawn);
             }
 
             foreach(GameObject spawn in spawnsPointForEvent)
