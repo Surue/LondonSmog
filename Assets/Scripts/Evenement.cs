@@ -13,6 +13,7 @@ public class Evenement : MonoBehaviour {
     bool rescued;
     SkeletonAnimation skeletonAnimation;
     bool lookingRight;
+    Collider2D collider;
 
     public enum EventType
     {
@@ -49,6 +50,8 @@ public class Evenement : MonoBehaviour {
         rescued = false;
 
         lookingRight = false;
+
+        collider = npc.GetComponent<Collider2D>();
     }
 	
 	// Update is called once per frame
@@ -79,6 +82,7 @@ public class Evenement : MonoBehaviour {
     public void SetRescued()
     {
         rescued = true;
+        collider.enabled = true;
     }
 
     public bool IsRescued()
@@ -96,7 +100,7 @@ public class Evenement : MonoBehaviour {
 
     public void SetVelocity()
     {
-        rigid.velocity = (EventManager.player.transform.position - npc.transform.position).normalized * 4.5f;
+        rigid.velocity = (EventManager.player.transform.position - npc.transform.position).normalized * 5f;
 
         if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
         {

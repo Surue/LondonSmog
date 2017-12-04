@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23073906381623324}
   - component: {fileID: 114546431063735858}
   - component: {fileID: 50396482688824708}
+  - component: {fileID: 58493537855529148}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511359439059748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0067115, y: 7.2497816, z: 0}
+  m_LocalPosition: {x: 26.644829, y: 14.333901, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4363601596647124}
@@ -134,7 +135,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!58 &58493537855529148
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915390025235490}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.62}
+  serializedVersion: 2
+  m_Radius: 0.33
 --- !u!61 &61996370651296844
 BoxCollider2D:
   m_ObjectHideFlags: 1

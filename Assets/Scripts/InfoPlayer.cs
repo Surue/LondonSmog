@@ -51,23 +51,15 @@ public class InfoPlayer : MonoBehaviour {
     public void NewDay()
     {
         currentDay++;
-
         //function for the player
         player = GameObject.FindObjectOfType<Player>();
         player.UpdateIntoxication((currentDay -1) * 10);
         player.UpdateTimeForTheDay(dayDurationInSeconds + timeGaineLastTime);
 
         player.LauncheCoroutine();
-
-        timeGaineLastTime = 0;
-
+        
         GameObject.FindObjectOfType<TimeRemaning>().SetTimeForLevel(dayDurationInSeconds + timeGaineLastTime);
-
-        //Debug.Log(scoreBoat + "boat");
-        //Debug.Log(scoreCarFire + "car fire");
-        //Debug.Log(scoreLost + "lost");
-        //Debug.Log(scoreLostObject + "lost object");
-        //Debug.Log(scoreWounded + "wounded");
+        timeGaineLastTime = 0;
     }
 
     public void RestartDay()

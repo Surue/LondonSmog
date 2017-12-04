@@ -19,6 +19,7 @@ public class Player:MonoBehaviour
     bool isInSafeZone = false;
     float intoxicationLevel = 0.0f;
     float timeInSecondsCanGoOut = 0;
+    float timePassed = 0;
 
     GameManager gameManager;
 
@@ -78,6 +79,7 @@ public class Player:MonoBehaviour
                     gameManager.Death();
                 }
             }
+            timePassed += 1;
             yield return new WaitForSeconds(1);
         }
     }
@@ -137,6 +139,11 @@ public class Player:MonoBehaviour
 
     public float GetPassedTime()
     {
-        return timeInSecondsCanGoOut;
+        return timePassed;
+    }
+
+    public bool IsInSafeZone()
+    {
+        return isInSafeZone;
     }
 }

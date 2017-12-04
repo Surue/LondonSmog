@@ -96,7 +96,6 @@ public class EventManager : MonoBehaviour
     {
         if(evenements.Count == 0)
         {
-            Debug.Log("Succes day");
             levelFinised = true;
             gameManager.SuccesDay();
         }

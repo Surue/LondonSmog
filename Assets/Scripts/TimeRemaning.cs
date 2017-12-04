@@ -30,12 +30,14 @@ public class TimeRemaning : MonoBehaviour {
 
     IEnumerator ClockAnimation()
     {
-        while(timeInSeconds >= 0)
+        while(timeInSeconds > 0)
         {
             timeInSeconds -= 1;
             DisplayTime();
             yield return new WaitForSeconds(1);
         }
+
+        GameObject.FindObjectOfType<GameManager>().EndOfTime();
     }
 
     void DisplayTime()
