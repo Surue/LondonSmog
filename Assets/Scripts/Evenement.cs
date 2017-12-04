@@ -16,10 +16,10 @@ public class Evenement : MonoBehaviour {
 
     public enum EventType
     {
-        LOST_OBJECT,
         CAR_FIRE,
         WOUNDED,
         LOST,
+        LOST_OBJECT,
         BOAT,
         LENGTH
     }

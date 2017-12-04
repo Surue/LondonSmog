@@ -66,8 +66,10 @@ public class EventManager : MonoBehaviour
             //Get all spawn point 
             GameObject[] tmpSpawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
             GameObject[] tmpSpawnPointWater = GameObject.FindGameObjectsWithTag("SpawnPointWater");
+            GameObject[] tmpSpawnPointHouse = GameObject.FindGameObjectsWithTag("SpawnPointHouse");
             spawnsPointForEvent.InsertRange(0, tmpSpawnPoint);
             spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointWater);
+            spawnsPointForEvent.InsertRange(spawnsPointForEvent.Count - 1, tmpSpawnPointHouse);
 
             GenerateAllEventForTheDay();
         }
@@ -111,16 +113,7 @@ public class EventManager : MonoBehaviour
 
                 //Random free Position
                 GameObject tmpSpawn = null;
-                bool found = false;
-                while(!found)
-                {
                     tmpSpawn = spawnsPointForEvent[Random.Range(0,spawnsPointForEvent.Count)];
-
-                    if(CheckIfPositionIsFree(tmpSpawn))
-                    {
-                        found = true;
-                    }
-                }
 
                 GameObject tmpMainObject = null;
 
@@ -129,9 +122,15 @@ public class EventManager : MonoBehaviour
                     tmpEventType = Evenement.EventType.BOAT;
                     tmpMainObject = Instantiate(prefabBoatEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                 }
+                else if(tmpSpawn.tag == "SpawnPointHouse")
+                {
+                    tmpEventType = Evenement.EventType.LOST_OBJECT;
+                    tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
+                    Debug.Log("ICI");
+                }
                 else
                 {
-                    tmpEventType = (Evenement.EventType)Random.Range(0,(float)Evenement.EventType.BOAT);
+                    tmpEventType = (Evenement.EventType)Random.Range(0,(float)Evenement.EventType.LOST_OBJECT);
 
                     //Create new evenement
                     switch(tmpEventType)
@@ -144,16 +143,11 @@ public class EventManager : MonoBehaviour
                             tmpMainObject = Instantiate(prefabLostEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                             break;
 
-                        case Evenement.EventType.LOST_OBJECT:
-                            tmpMainObject = Instantiate(prefabThiefEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
-                            break;
-
                         case Evenement.EventType.WOUNDED:
                             tmpMainObject = Instantiate(prefabWoundedEvent,tmpSpawn.transform.position,tmpSpawn.transform.rotation);
                             break;
                     }
                 }
-
                 Evenement tmpEvenement = tmpMainObject.GetComponent<Evenement>();
                 tmpEvenement.Set(tmpEventType,tmpSpawn,tmpMainObject);
 
