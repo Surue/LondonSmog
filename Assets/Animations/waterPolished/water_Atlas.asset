@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+  m_Name: water_Atlas
+  m_EditorClassIdentifier: 
+  atlasFile: {fileID: 4900000, guid: 029ee67255108f44f8a5d32cdf245826, type: 3}
+  materials:
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: a1233b15b14aa7b4eb7f7322460c2b94, type: 2}

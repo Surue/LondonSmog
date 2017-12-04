@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 7408c30629f28ec47a5d26711d813868, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 6b6c052eb621bba4d9bc59f599988f46, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -481,11 +481,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 789b9501e41554e4e8fba6e7ecda41d7, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
+  - {fileID: 2100000, guid: a1233b15b14aa7b4eb7f7322460c2b94, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -773,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &279198030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1576,6 +1576,11 @@ Prefab:
       propertyPath: gaugeIntoxication
       value: 
       objectReference: {fileID: 510855126}
+    - target: {fileID: 33684136569397150, guid: b620cc8a2600b764dae766a01f95efa3,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b620cc8a2600b764dae766a01f95efa3, type: 2}
   m_IsPrefabParent: 0
@@ -1944,7 +1949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &817211115
 Transform:
   m_ObjectHideFlags: 0
@@ -2179,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 7408c30629f28ec47a5d26711d813868, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 6b6c052eb621bba4d9bc59f599988f46, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -2212,11 +2217,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 789b9501e41554e4e8fba6e7ecda41d7, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
+  - {fileID: 2100000, guid: a1233b15b14aa7b4eb7f7322460c2b94, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2510,7 +2515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 7408c30629f28ec47a5d26711d813868, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 6b6c052eb621bba4d9bc59f599988f46, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -2543,11 +2548,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 789b9501e41554e4e8fba6e7ecda41d7, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
+  - {fileID: 2100000, guid: a1233b15b14aa7b4eb7f7322460c2b94, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3248,7 +3253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 7408c30629f28ec47a5d26711d813868, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 6b6c052eb621bba4d9bc59f599988f46, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -3281,11 +3286,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 789b9501e41554e4e8fba6e7ecda41d7, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
-  - {fileID: 2100000, guid: ff9eb5b7363afb94380d045f07467648, type: 2}
-  - {fileID: 2100000, guid: e683b8046d63e8543bbaddd5afe3e743, type: 2}
+  - {fileID: 2100000, guid: a1233b15b14aa7b4eb7f7322460c2b94, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
+  - {fileID: 2100000, guid: 4ed5a4b4ca8290b469ebb0f9ffb44ce5, type: 2}
+  - {fileID: 2100000, guid: 8e1bfb45674a94e46a6fbfa4f9e5e28b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4370,12 +4375,12 @@ Prefab:
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 382
+      value: 383
       objectReference: {fileID: 0}
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 215
+      value: 215.5
       objectReference: {fileID: 0}
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
