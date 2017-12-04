@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: cf373eccc2ee31748ae521bcb61b0855
-timeCreated: 1512426433
+guid: 9296c64a714d76d4996a7b500386f52c
+timeCreated: 1512426277
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: interface_london_START_0
-    21300002: interface_london_START_1
-    21300004: interface_london_START_2
-    21300006: interface_london_START_3
+    21300000: interface_london_START (1)_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -82,57 +79,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: interface_london_START_0
+      name: interface_london_START (1)_0
       rect:
         serializedVersion: 2
-        x: 321
-        y: 2083
-        width: 3475
-        height: 650
+        x: 40
+        y: 1790
+        width: 4056
+        height: 1276
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 23, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: interface_london_START_1
-      rect:
-        serializedVersion: 2
-        x: 3330
-        y: 1948
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: interface_london_START_2
-      rect:
-        serializedVersion: 2
-        x: 3379
-        y: 1949
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: interface_london_START_3
-      rect:
-        serializedVersion: 2
-        x: 1945
-        y: 1907
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

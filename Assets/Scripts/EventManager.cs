@@ -86,9 +86,13 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentEvenement != null)
+        if(currentEvenement != null && currentEvenement.GetEventType() != Evenement.EventType.LOST_OBJECT)
         {
             currentEvenement.SetVelocity();
+        }
+        else if(currentEvenement != null &&  currentEvenement.GetEventType() == Evenement.EventType.LOST_OBJECT)
+        {
+            currentEvenement.transform.position = player.transform.position;
         }
 
         if(levelFinised)
@@ -215,13 +219,15 @@ public class EventManager : MonoBehaviour
     {
         if (currentEvenement == null)
         {
-            Debug.Log("ICI");
             foreach (Evenement evenement in evenements)
             {
                 if (evenement.GetMainObject().GetInstanceID() == currentEventZone.GetInstanceID())
                 {
                     currentEvenement = evenement;
-                    currentEvenement.GetNPC().transform.parent = player.transform;
+                    if(currentEvenement.GetNPC() != null)
+                    {
+                        currentEvenement.GetNPC().transform.parent = player.transform;
+                    }
                     currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
                     currentEvenement.SetRescued();
                     break;

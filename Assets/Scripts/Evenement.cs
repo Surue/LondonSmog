@@ -13,7 +13,6 @@ public class Evenement : MonoBehaviour {
     bool rescued;
     SkeletonAnimation skeletonAnimation;
     bool lookingRight;
-    Collider2D collider;
     Player player;
 
     public enum EventType
@@ -38,7 +37,7 @@ public class Evenement : MonoBehaviour {
         type = eventType;
         spawnPoint = spawn;
         mainObject = coll;
-        if(eventType != EventType.LENGTH)
+        if(eventType != EventType.LENGTH && eventType != EventType.LOST_OBJECT)
         {
             npc = mainObject.transform.Find("NPC").gameObject;
             rigid = npc.GetComponent<Rigidbody2D>();
@@ -53,13 +52,11 @@ public class Evenement : MonoBehaviour {
         rescued = false;
 
         lookingRight = false;
-
-        collider = npc.GetComponent<Collider2D>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(Vector3.Distance(npc.transform.position, player.transform.position) < 7 && !rescued && !soundPlayed)
+		if(type != EventType.LOST_OBJECT && Vector3.Distance(npc.transform.position, player.transform.position) < 7 && !rescued && !soundPlayed)
         {
             switch(type)
             {
@@ -76,7 +73,7 @@ public class Evenement : MonoBehaviour {
             soundPlayed = true;
         }
 
-        if(Vector3.Distance(npc.transform.position,player.transform.position) > 8 && soundPlayed)
+        if(type != EventType.LOST_OBJECT && Vector3.Distance(npc.transform.position,player.transform.position) > 8 && soundPlayed)
         {
             soundPlayed = false;
         }
@@ -105,7 +102,6 @@ public class Evenement : MonoBehaviour {
     public void SetRescued()
     {
         rescued = true;
-        collider.enabled = true;
     }
 
     public bool IsRescued()
