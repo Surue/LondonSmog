@@ -14,6 +14,7 @@ public class Evenement : MonoBehaviour {
     SkeletonAnimation skeletonAnimation;
     bool lookingRight;
     Collider2D collider;
+    Player player;
 
     public enum EventType
     {
@@ -25,9 +26,11 @@ public class Evenement : MonoBehaviour {
         LENGTH
     }
 
+    bool soundPlayed = false;
+
     // Use this for initialization
     void Start () {
-
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     public void Set(EventType eventType,GameObject spawn,GameObject coll)
@@ -56,8 +59,28 @@ public class Evenement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		if(Vector3.Distance(npc.transform.position, player.transform.position) < 7 && !rescued && !soundPlayed)
+        {
+            switch(type)
+            {
+                case EventType.LOST:
+                    SoundManager.instance.Hello();
+                    break;
+
+                case EventType.BOAT:
+                case EventType.CAR_FIRE:
+                case EventType.WOUNDED:
+                    SoundManager.instance.Help();
+                    break;
+            }
+            soundPlayed = true;
+        }
+
+        if(Vector3.Distance(npc.transform.position,player.transform.position) > 8 && soundPlayed)
+        {
+            soundPlayed = false;
+        }
+    }
 
     public GameObject GetSpawnPoint()
     {

@@ -1596,17 +1596,6 @@ Prefab:
       propertyPath: gaugeIntoxication
       value: 
       objectReference: {fileID: 510855126}
-    - target: {fileID: 331324214610350454, guid: b620cc8a2600b764dae766a01f95efa3,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2b5e9b4442ccc4d4cb2eb703204e014e,
-        type: 3}
-    - target: {fileID: 331324214610350454, guid: b620cc8a2600b764dae766a01f95efa3,
-        type: 2}
-      propertyPath: m_MaskAlphaCutoff
-      value: 0.409
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b620cc8a2600b764dae766a01f95efa3, type: 2}
   m_IsPrefabParent: 0
@@ -4401,12 +4390,12 @@ Prefab:
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 375
+      value: 382
       objectReference: {fileID: 0}
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 211
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 224782644794470218, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}

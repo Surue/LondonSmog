@@ -34,6 +34,11 @@ public class TimeRemaning : MonoBehaviour {
         {
             timeInSeconds -= 1;
             DisplayTime();
+            if(timeInSeconds == 60)
+            {
+                SoundManager.instance.BigBen();
+            }
+
             yield return new WaitForSeconds(1);
         }
 

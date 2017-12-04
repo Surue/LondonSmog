@@ -237,6 +237,8 @@ public class EventManager : MonoBehaviour
         Destroy(currentEvenement.GetNPC());
         Destroy(currentEvenement.GetMainObject());
         currentEvenement = null;
+
+        SoundManager.instance.CitizenSave();
     }
 
     static public LayerMask ZoneToGo()
