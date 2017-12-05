@@ -1581,6 +1581,11 @@ Prefab:
       propertyPath: gaugeIntoxication
       value: 
       objectReference: {fileID: 510855126}
+    - target: {fileID: 114666735466995610, guid: b620cc8a2600b764dae766a01f95efa3,
+        type: 2}
+      propertyPath: timeScale
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b620cc8a2600b764dae766a01f95efa3, type: 2}
   m_IsPrefabParent: 0
