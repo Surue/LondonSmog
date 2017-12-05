@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour {
                 InfoPlayer.Instance.NewDay();
                 break;
 
-            case "WinScreen":
-                Text textScore = GameObject.FindGameObjectWithTag("textScore").GetComponent<Text>();
-                textScore.text = textScore.text + " " + InfoPlayer.Instance.GetScore();
-                break;
-
             default:
                 break;
         }
