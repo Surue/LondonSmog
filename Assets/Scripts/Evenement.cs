@@ -101,6 +101,16 @@ public class Evenement : MonoBehaviour {
 
     public void SetRescued()
     {
+        if(player.transform.position.x > transform.position.x)
+        {
+            lookingRight = false;
+        }
+        else
+        {
+            lookingRight = true;
+            skeletonAnimation.AnimationName = "Marche_Face";
+            skeletonAnimation.timeScale = 0;
+        }
         rescued = true;
     }
 
@@ -119,38 +129,46 @@ public class Evenement : MonoBehaviour {
 
     public void SetVelocity()
     {
-        rigid.velocity = (EventManager.player.transform.position - npc.transform.position).normalized * 5f;
-
-        if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
+        if(!player.IsMoving())
         {
-            if(rigid.velocity.x > 0)
-            {
-                if(!lookingRight)
-                {
-                    Flip();
-                }
-
-                skeletonAnimation.AnimationName = "Marche_Cote_Femme";
-            }
-            else
-            {
-                if(lookingRight)
-                {
-                    Flip();
-                }
-
-                skeletonAnimation.AnimationName = "Marche_Cote_Femme";
-            }
+            rigid.velocity = new Vector2(0,0);
+            skeletonAnimation.timeScale = 0;
         }
-        else
+        else if(Vector2.Distance(player.transform.position, npc.transform.position) > 1 && player.IsMoving())
         {
-            if(rigid.velocity.y > 0)
+            rigid.velocity = (EventManager.player.transform.position - npc.transform.position).normalized * 5f;
+            skeletonAnimation.timeScale = 1;
+            if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
             {
-                skeletonAnimation.AnimationName = "Marche_Dos";
+                if(rigid.velocity.x > 0)
+                {
+                    if(!lookingRight)
+                    {
+                        Flip();
+                    }
+
+                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+                }
+                else
+                {
+                    if(lookingRight)
+                    {
+                        Flip();
+                    }
+
+                    skeletonAnimation.AnimationName = "Marche_Cote_Femme";
+                }
             }
             else
             {
-                skeletonAnimation.AnimationName = "Marche_Face";
+                if(rigid.velocity.y > 0)
+                {
+                    skeletonAnimation.AnimationName = "Marche_Dos";
+                }
+                else
+                {
+                    skeletonAnimation.AnimationName = "Marche_Face";
+                }
             }
         }
     }

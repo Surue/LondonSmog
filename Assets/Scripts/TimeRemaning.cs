@@ -34,7 +34,7 @@ public class TimeRemaning : MonoBehaviour {
         {
             timeInSeconds -= 1;
             DisplayTime();
-            if(timeInSeconds == 60)
+            if(timeInSeconds == 30)
             {
                 SoundManager.instance.BigBen();
             }
@@ -48,6 +48,13 @@ public class TimeRemaning : MonoBehaviour {
     void DisplayTime()
     {
         textMinutes.text = ((int)timeInSeconds / 60).ToString();
-        textSeconds.text = (timeInSeconds % 60).ToString();
+        if((timeInSeconds % 60) < 10)
+        {
+            textSeconds.text = "0"+(timeInSeconds % 60).ToString();
+        }
+        else
+        {
+            textSeconds.text = (timeInSeconds % 60).ToString();
+        }
     }
 }

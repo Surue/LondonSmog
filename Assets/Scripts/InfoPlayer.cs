@@ -12,7 +12,7 @@ public class InfoPlayer : MonoBehaviour {
 
     int currentDay = 0;
 
-    const float dayDurationInSeconds = 180f;
+    const float dayDurationInSeconds = 120f;
 
     float timeGaineLastTime = 0;
 

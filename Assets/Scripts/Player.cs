@@ -162,6 +162,11 @@ public class Player:MonoBehaviour
         lookingRight = !lookingRight;
     }
 
+    public bool IsMoving()
+    {
+        return Mathf.Abs(body.velocity.x) > 0 || Mathf.Abs(body.velocity.y) > 0;
+    }
+
     void ManageAnimation()
     {
         if(Mathf.Abs(body.velocity.x) > 0 || Mathf.Abs(body.velocity.y) > 0)

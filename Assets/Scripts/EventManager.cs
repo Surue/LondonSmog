@@ -226,7 +226,8 @@ public class EventManager : MonoBehaviour
                     currentEvenement = evenement;
                     if(currentEvenement.GetNPC() != null)
                     {
-                        currentEvenement.GetNPC().transform.parent = player.transform;
+                        currentEvenement.GetMainObject().transform.DetachChildren();
+                        //currentEvenement.GetNPC().transform.parent = player.transform;
                     }
                     currentEvenement.GetMainObject().GetComponent<Collider2D>().enabled = false;
                     currentEvenement.SetRescued();

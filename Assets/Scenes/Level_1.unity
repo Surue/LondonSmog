@@ -1571,16 +1571,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114844090608511928, guid: b620cc8a2600b764dae766a01f95efa3,
-        type: 2}
-      propertyPath: gaugeIntoxication
-      value: 
-      objectReference: {fileID: 510855126}
     - target: {fileID: 33684136569397150, guid: b620cc8a2600b764dae766a01f95efa3,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114844090608511928, guid: b620cc8a2600b764dae766a01f95efa3,
+        type: 2}
+      propertyPath: gaugeIntoxication
+      value: 
+      objectReference: {fileID: 510855126}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b620cc8a2600b764dae766a01f95efa3, type: 2}
   m_IsPrefabParent: 0
@@ -4424,16 +4424,12 @@ Prefab:
     - target: {fileID: 224088043417474172, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -567
+      value: -960
       objectReference: {fileID: 0}
     - target: {fileID: 224088043417474172, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -319
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235106017756082, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      value: -540
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2e18cd8b57ca2c4b90e0a55e0d92ebd, type: 2}
