@@ -84,4 +84,9 @@ public class InfoPlayer : MonoBehaviour {
         this.scoreLostObject += scoreLostObject;
         this.scoreWounded += scoreWounded;
     }
+
+    public int GetScore()
+    {
+        return scoreLost + scoreBoat + scoreCarFire + scoreWounded + scoreLostObject;
+    }
 }

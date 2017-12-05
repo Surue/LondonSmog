@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -23,6 +24,11 @@ public class GameManager : MonoBehaviour {
             case "Level_2":
             case "Level_3":
                 InfoPlayer.Instance.NewDay();
+                break;
+
+            case "WinScreen":
+                Text textScore = GameObject.FindGameObjectWithTag("textScore").GetComponent<Text>();
+                textScore.text = textScore.text + " " + InfoPlayer.Instance.GetScore();
                 break;
 
             default:

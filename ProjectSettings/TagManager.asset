@@ -8,6 +8,7 @@ TagManager:
   - SpawnPointWater
   - NPC
   - SpawnPointHouse
+  - textScore
   layers:
   - Default
   - TransparentFX
