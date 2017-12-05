@@ -171,7 +171,7 @@ public class Player:MonoBehaviour
     {
         if(Mathf.Abs(body.velocity.x) > 0 || Mathf.Abs(body.velocity.y) > 0)
         {
-            skeletonAnimation.timeScale = 1;
+            skeletonAnimation.timeScale = 1.5f;
         }
         else
         {

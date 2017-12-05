@@ -101,7 +101,7 @@ public class Evenement : MonoBehaviour {
 
     public void SetRescued()
     {
-        if(player.transform.position.x > transform.position.x)
+        if(player.transform.position.x >= transform.position.x)
         {
             lookingRight = false;
         }
@@ -137,7 +137,7 @@ public class Evenement : MonoBehaviour {
         else if(Vector2.Distance(player.transform.position, npc.transform.position) > 1 && player.IsMoving())
         {
             rigid.velocity = (EventManager.player.transform.position - npc.transform.position).normalized * 5f;
-            skeletonAnimation.timeScale = 1;
+            skeletonAnimation.timeScale = 1.5f;
             if(Mathf.Abs(rigid.velocity.x) > Mathf.Abs(rigid.velocity.y))
             {
                 if(rigid.velocity.x > 0)
